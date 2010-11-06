@@ -1,0 +1,4 @@
+debian/tmp/usr/bin
+debian/gconf-schemas usr/sbin/
+debian/update-gconf-defaults usr/bin/
+debian/tmp/usr/share/man

@@ -1,0 +1,4 @@
+debian/tmp/etc/dbus-1
+debian/tmp/usr/share/polkit-1
+debian/tmp/usr/share/dbus-1/system-services
+debian/tmp/usr/lib/libgconf2-4/gconf-defaults-mechanism

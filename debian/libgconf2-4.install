@@ -1,0 +1,4 @@
+debian/tmp/usr/lib/*.so.*
+debian/tmp/usr/lib/libgconf2-4/gconfd-2
+debian/tmp/usr/lib/libgconf2-4/gconf-sanity-check-2
+debian/tmp/usr/lib/libgconf2-4/2/*.so

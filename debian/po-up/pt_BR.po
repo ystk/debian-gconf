@@ -1,0 +1,20 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: gconf\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-10-03 21:34+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Sérgio Cipolla <secipolla@gmail.com>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+
+#: ../patches/03_error_message.patch:2
+#, c-format
+msgid "Failed to contact configuration server; the most common cause is a missing or misconfigured D-Bus session bus daemon. See http://projects.gnome.org/gconf/ for information. (Details - %s)"
+msgstr "Falha ao contatar o servidor de configuração; a causa mais comum é um bus daemon da sessão do D-Bus faltante ou mal configurado. Para mais informações consulte: http://projects.gnome.org/gconf/. (Detalhes - %s)"
+
