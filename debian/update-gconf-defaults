@@ -81,10 +81,12 @@ def listcmp(a,b):
   return m
 
 def apply_entries(filename):
+  env=os.environ.copy()
+  env['HOME'] = tmp_home
   res=os.spawnvpe(os.P_WAIT,'gconftool-2',
            ['gconftool-2','--direct','--config-source',
             'xml:merged:'+tmp_gconf,'--load',filename],
-           {'HOME': tmp_home})
+           env)
   if res:
     cleanup()
     sys.exit(res)

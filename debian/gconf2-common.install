@@ -1,6 +1,5 @@
 debian/default.path* usr/share/gconf/
-debian/tmp/etc/gconf/2/evoldap.conf
-debian/tmp/usr/share/locale
-debian/tmp/usr/share/sgml
-debian/tmp/usr/share/dbus-1/services
-debian/tmp/usr/share/GConf/schema/evoldap.schema usr/share/doc/gconf2-common/
+etc/gconf/2/evoldap.conf
+usr/share/locale
+usr/share/sgml
+usr/share/GConf/schema/evoldap.schema usr/share/doc/gconf2-common/

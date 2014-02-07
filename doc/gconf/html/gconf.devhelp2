@@ -3,7 +3,7 @@
 <book xmlns="http://www.devhelp.net/book" title="GConf Reference Manual" link="index.html" author="" name="gconf" version="2" language="c">
   <chapters>
     <sub name="Using the GConf library" link="ch01.html">
-      <sub name="GConfClient" link="gconf-GConfClient.html"/>
+      <sub name="GConfClient" link="gconf-gconf-client.html"/>
       <sub name="gconf-backend" link="gconf-gconf-backend.html"/>
       <sub name="GConfEngine" link="gconf-gconf-engine.html"/>
       <sub name="GError" link="gconf-gconf-error.html"/>
@@ -18,56 +18,56 @@
     </sub>
   </chapters>
   <functions>
-    <keyword type="enum" name="enum GConfClientPreloadType" link="gconf-GConfClient.html#GConfClientPreloadType"/>
-    <keyword type="enum" name="enum GConfClientErrorHandlingMode" link="gconf-GConfClient.html#GConfClientErrorHandlingMode"/>
-    <keyword type="function" name="GConfClientNotifyFunc ()" link="gconf-GConfClient.html#GConfClientNotifyFunc"/>
-    <keyword type="function" name="GConfClientErrorHandlerFunc ()" link="gconf-GConfClient.html#GConfClientErrorHandlerFunc"/>
-    <keyword type="macro" name="GCONF_CLIENT()" link="gconf-GConfClient.html#GCONF-CLIENT:CAPS"/>
-    <keyword type="function" name="gconf_client_get_default ()" link="gconf-GConfClient.html#gconf-client-get-default"/>
-    <keyword type="function" name="gconf_client_get_for_engine ()" link="gconf-GConfClient.html#gconf-client-get-for-engine"/>
-    <keyword type="function" name="gconf_client_add_dir ()" link="gconf-GConfClient.html#gconf-client-add-dir"/>
-    <keyword type="function" name="gconf_client_remove_dir ()" link="gconf-GConfClient.html#gconf-client-remove-dir"/>
-    <keyword type="function" name="gconf_client_notify_add ()" link="gconf-GConfClient.html#gconf-client-notify-add"/>
-    <keyword type="function" name="gconf_client_notify_remove ()" link="gconf-GConfClient.html#gconf-client-notify-remove"/>
-    <keyword type="function" name="gconf_client_notify ()" link="gconf-GConfClient.html#gconf-client-notify" since="2.4."/>
-    <keyword type="function" name="gconf_client_set_error_handling ()" link="gconf-GConfClient.html#gconf-client-set-error-handling"/>
-    <keyword type="function" name="gconf_client_set_global_default_error_handler ()" link="gconf-GConfClient.html#gconf-client-set-global-default-error-handler"/>
-    <keyword type="function" name="gconf_client_clear_cache ()" link="gconf-GConfClient.html#gconf-client-clear-cache"/>
-    <keyword type="function" name="gconf_client_preload ()" link="gconf-GConfClient.html#gconf-client-preload"/>
-    <keyword type="function" name="gconf_client_set ()" link="gconf-GConfClient.html#gconf-client-set"/>
-    <keyword type="function" name="gconf_client_get ()" link="gconf-GConfClient.html#gconf-client-get"/>
-    <keyword type="function" name="gconf_client_get_without_default ()" link="gconf-GConfClient.html#gconf-client-get-without-default"/>
-    <keyword type="function" name="gconf_client_get_entry ()" link="gconf-GConfClient.html#gconf-client-get-entry"/>
-    <keyword type="function" name="gconf_client_get_default_from_schema ()" link="gconf-GConfClient.html#gconf-client-get-default-from-schema"/>
-    <keyword type="function" name="gconf_client_unset ()" link="gconf-GConfClient.html#gconf-client-unset"/>
-    <keyword type="function" name="gconf_client_recursive_unset ()" link="gconf-GConfClient.html#gconf-client-recursive-unset" since="2.4."/>
-    <keyword type="function" name="gconf_client_all_entries ()" link="gconf-GConfClient.html#gconf-client-all-entries"/>
-    <keyword type="function" name="gconf_client_all_dirs ()" link="gconf-GConfClient.html#gconf-client-all-dirs"/>
-    <keyword type="function" name="gconf_client_suggest_sync ()" link="gconf-GConfClient.html#gconf-client-suggest-sync"/>
-    <keyword type="function" name="gconf_client_dir_exists ()" link="gconf-GConfClient.html#gconf-client-dir-exists"/>
-    <keyword type="function" name="gconf_client_key_is_writable ()" link="gconf-GConfClient.html#gconf-client-key-is-writable"/>
-    <keyword type="function" name="gconf_client_get_float ()" link="gconf-GConfClient.html#gconf-client-get-float"/>
-    <keyword type="function" name="gconf_client_get_int ()" link="gconf-GConfClient.html#gconf-client-get-int"/>
-    <keyword type="function" name="gconf_client_get_string ()" link="gconf-GConfClient.html#gconf-client-get-string"/>
-    <keyword type="function" name="gconf_client_get_bool ()" link="gconf-GConfClient.html#gconf-client-get-bool"/>
-    <keyword type="function" name="gconf_client_get_schema ()" link="gconf-GConfClient.html#gconf-client-get-schema"/>
-    <keyword type="function" name="gconf_client_get_list ()" link="gconf-GConfClient.html#gconf-client-get-list"/>
-    <keyword type="function" name="gconf_client_get_pair ()" link="gconf-GConfClient.html#gconf-client-get-pair"/>
-    <keyword type="function" name="gconf_client_set_float ()" link="gconf-GConfClient.html#gconf-client-set-float"/>
-    <keyword type="function" name="gconf_client_set_int ()" link="gconf-GConfClient.html#gconf-client-set-int"/>
-    <keyword type="function" name="gconf_client_set_string ()" link="gconf-GConfClient.html#gconf-client-set-string"/>
-    <keyword type="function" name="gconf_client_set_bool ()" link="gconf-GConfClient.html#gconf-client-set-bool"/>
-    <keyword type="function" name="gconf_client_set_schema ()" link="gconf-GConfClient.html#gconf-client-set-schema"/>
-    <keyword type="function" name="gconf_client_set_list ()" link="gconf-GConfClient.html#gconf-client-set-list"/>
-    <keyword type="function" name="gconf_client_set_pair ()" link="gconf-GConfClient.html#gconf-client-set-pair"/>
-    <keyword type="function" name="gconf_client_error ()" link="gconf-GConfClient.html#gconf-client-error"/>
-    <keyword type="function" name="gconf_client_unreturned_error ()" link="gconf-GConfClient.html#gconf-client-unreturned-error"/>
-    <keyword type="function" name="gconf_client_value_changed ()" link="gconf-GConfClient.html#gconf-client-value-changed"/>
-    <keyword type="function" name="gconf_client_commit_change_set ()" link="gconf-GConfClient.html#gconf-client-commit-change-set"/>
-    <keyword type="function" name="gconf_client_reverse_change_set ()" link="gconf-GConfClient.html#gconf-client-reverse-change-set"/>
-    <keyword type="function" name="gconf_client_change_set_from_currentv ()" link="gconf-GConfClient.html#gconf-client-change-set-from-currentv"/>
-    <keyword type="function" name="gconf_client_change_set_from_current ()" link="gconf-GConfClient.html#gconf-client-change-set-from-current"/>
-    <keyword type="struct" name="GConfBackendVTable" link="gconf-gconf-backend.html#GConfBackendVTable"/>
+    <keyword type="enum" name="enum GConfClientPreloadType" link="gconf-gconf-client.html#GConfClientPreloadType"/>
+    <keyword type="enum" name="enum GConfClientErrorHandlingMode" link="gconf-gconf-client.html#GConfClientErrorHandlingMode"/>
+    <keyword type="function" name="GConfClientNotifyFunc ()" link="gconf-gconf-client.html#GConfClientNotifyFunc"/>
+    <keyword type="function" name="GConfClientErrorHandlerFunc ()" link="gconf-gconf-client.html#GConfClientErrorHandlerFunc"/>
+    <keyword type="macro" name="GCONF_CLIENT()" link="gconf-gconf-client.html#GCONF-CLIENT:CAPS"/>
+    <keyword type="function" name="gconf_client_get_default ()" link="gconf-gconf-client.html#gconf-client-get-default"/>
+    <keyword type="function" name="gconf_client_get_for_engine ()" link="gconf-gconf-client.html#gconf-client-get-for-engine"/>
+    <keyword type="function" name="gconf_client_add_dir ()" link="gconf-gconf-client.html#gconf-client-add-dir"/>
+    <keyword type="function" name="gconf_client_remove_dir ()" link="gconf-gconf-client.html#gconf-client-remove-dir"/>
+    <keyword type="function" name="gconf_client_notify_add ()" link="gconf-gconf-client.html#gconf-client-notify-add"/>
+    <keyword type="function" name="gconf_client_notify_remove ()" link="gconf-gconf-client.html#gconf-client-notify-remove"/>
+    <keyword type="function" name="gconf_client_notify ()" link="gconf-gconf-client.html#gconf-client-notify" since="2.4."/>
+    <keyword type="function" name="gconf_client_set_error_handling ()" link="gconf-gconf-client.html#gconf-client-set-error-handling"/>
+    <keyword type="function" name="gconf_client_set_global_default_error_handler ()" link="gconf-gconf-client.html#gconf-client-set-global-default-error-handler"/>
+    <keyword type="function" name="gconf_client_clear_cache ()" link="gconf-gconf-client.html#gconf-client-clear-cache"/>
+    <keyword type="function" name="gconf_client_preload ()" link="gconf-gconf-client.html#gconf-client-preload"/>
+    <keyword type="function" name="gconf_client_set ()" link="gconf-gconf-client.html#gconf-client-set"/>
+    <keyword type="function" name="gconf_client_get ()" link="gconf-gconf-client.html#gconf-client-get"/>
+    <keyword type="function" name="gconf_client_get_without_default ()" link="gconf-gconf-client.html#gconf-client-get-without-default"/>
+    <keyword type="function" name="gconf_client_get_entry ()" link="gconf-gconf-client.html#gconf-client-get-entry"/>
+    <keyword type="function" name="gconf_client_get_default_from_schema ()" link="gconf-gconf-client.html#gconf-client-get-default-from-schema"/>
+    <keyword type="function" name="gconf_client_unset ()" link="gconf-gconf-client.html#gconf-client-unset"/>
+    <keyword type="function" name="gconf_client_recursive_unset ()" link="gconf-gconf-client.html#gconf-client-recursive-unset" since="2.4."/>
+    <keyword type="function" name="gconf_client_all_entries ()" link="gconf-gconf-client.html#gconf-client-all-entries"/>
+    <keyword type="function" name="gconf_client_all_dirs ()" link="gconf-gconf-client.html#gconf-client-all-dirs"/>
+    <keyword type="function" name="gconf_client_suggest_sync ()" link="gconf-gconf-client.html#gconf-client-suggest-sync"/>
+    <keyword type="function" name="gconf_client_dir_exists ()" link="gconf-gconf-client.html#gconf-client-dir-exists"/>
+    <keyword type="function" name="gconf_client_key_is_writable ()" link="gconf-gconf-client.html#gconf-client-key-is-writable"/>
+    <keyword type="function" name="gconf_client_get_float ()" link="gconf-gconf-client.html#gconf-client-get-float"/>
+    <keyword type="function" name="gconf_client_get_int ()" link="gconf-gconf-client.html#gconf-client-get-int"/>
+    <keyword type="function" name="gconf_client_get_string ()" link="gconf-gconf-client.html#gconf-client-get-string"/>
+    <keyword type="function" name="gconf_client_get_bool ()" link="gconf-gconf-client.html#gconf-client-get-bool"/>
+    <keyword type="function" name="gconf_client_get_schema ()" link="gconf-gconf-client.html#gconf-client-get-schema"/>
+    <keyword type="function" name="gconf_client_get_list ()" link="gconf-gconf-client.html#gconf-client-get-list"/>
+    <keyword type="function" name="gconf_client_get_pair ()" link="gconf-gconf-client.html#gconf-client-get-pair"/>
+    <keyword type="function" name="gconf_client_set_float ()" link="gconf-gconf-client.html#gconf-client-set-float"/>
+    <keyword type="function" name="gconf_client_set_int ()" link="gconf-gconf-client.html#gconf-client-set-int"/>
+    <keyword type="function" name="gconf_client_set_string ()" link="gconf-gconf-client.html#gconf-client-set-string"/>
+    <keyword type="function" name="gconf_client_set_bool ()" link="gconf-gconf-client.html#gconf-client-set-bool"/>
+    <keyword type="function" name="gconf_client_set_schema ()" link="gconf-gconf-client.html#gconf-client-set-schema"/>
+    <keyword type="function" name="gconf_client_set_list ()" link="gconf-gconf-client.html#gconf-client-set-list"/>
+    <keyword type="function" name="gconf_client_set_pair ()" link="gconf-gconf-client.html#gconf-client-set-pair"/>
+    <keyword type="function" name="gconf_client_error ()" link="gconf-gconf-client.html#gconf-client-error"/>
+    <keyword type="function" name="gconf_client_unreturned_error ()" link="gconf-gconf-client.html#gconf-client-unreturned-error"/>
+    <keyword type="function" name="gconf_client_value_changed ()" link="gconf-gconf-client.html#gconf-client-value-changed"/>
+    <keyword type="function" name="gconf_client_commit_change_set ()" link="gconf-gconf-client.html#gconf-client-commit-change-set"/>
+    <keyword type="function" name="gconf_client_reverse_change_set ()" link="gconf-gconf-client.html#gconf-client-reverse-change-set"/>
+    <keyword type="function" name="gconf_client_change_set_from_currentv ()" link="gconf-gconf-client.html#gconf-client-change-set-from-currentv"/>
+    <keyword type="function" name="gconf_client_change_set_from_current ()" link="gconf-gconf-client.html#gconf-client-change-set-from-current"/>
+    <keyword type="struct" name="struct GConfBackendVTable" link="gconf-gconf-backend.html#GConfBackendVTable"/>
     <keyword type="struct" name="GConfBackend" link="gconf-gconf-backend.html#GConfBackend"/>
     <keyword type="function" name="gconf_address_backend ()" link="gconf-gconf-backend.html#gconf-address-backend"/>
     <keyword type="function" name="gconf_address_resource ()" link="gconf-gconf-backend.html#gconf-address-resource"/>
@@ -153,11 +153,11 @@
     <keyword type="function" name="gconf_schema_set_car_type ()" link="gconf-gconf-schema.html#gconf-schema-set-car-type"/>
     <keyword type="function" name="gconf_schema_set_cdr_type ()" link="gconf-gconf-schema.html#gconf-schema-set-cdr-type"/>
     <keyword type="function" name="gconf_schema_set_list_type ()" link="gconf-gconf-schema.html#gconf-schema-set-list-type"/>
-    <keyword type="struct" name="GConfSource" link="gconf-gconf-sources.html#GConfSource"/>
+    <keyword type="struct" name="struct GConfSource" link="gconf-gconf-sources.html#GConfSource"/>
     <keyword type="enum" name="enum GConfSourceFlags" link="gconf-gconf-sources.html#GConfSourceFlags"/>
     <keyword type="function" name="gconf_resolve_address ()" link="gconf-gconf-sources.html#gconf-resolve-address"/>
     <keyword type="function" name="gconf_source_free ()" link="gconf-gconf-sources.html#gconf-source-free"/>
-    <keyword type="struct" name="GConfSources" link="gconf-gconf-sources.html#GConfSources"/>
+    <keyword type="struct" name="struct GConfSources" link="gconf-gconf-sources.html#GConfSources"/>
     <keyword type="function" name="gconf_sources_new_from_addresses ()" link="gconf-gconf-sources.html#gconf-sources-new-from-addresses"/>
     <keyword type="function" name="gconf_sources_new_from_source ()" link="gconf-gconf-sources.html#gconf-sources-new-from-source"/>
     <keyword type="function" name="gconf_sources_free ()" link="gconf-gconf-sources.html#gconf-sources-free"/>
@@ -173,7 +173,7 @@
     <keyword type="function" name="gconf_sources_query_metainfo ()" link="gconf-gconf-sources.html#gconf-sources-query-metainfo"/>
     <keyword type="function" name="gconf_sources_query_default_value ()" link="gconf-gconf-sources.html#gconf-sources-query-default-value"/>
     <keyword type="enum" name="enum GConfValueType" link="gconf-gconf-value.html#GConfValueType"/>
-    <keyword type="struct" name="GConfValue" link="gconf-gconf-value.html#GConfValue"/>
+    <keyword type="struct" name="struct GConfValue" link="gconf-gconf-value.html#GConfValue"/>
     <keyword type="macro" name="GCONF_VALUE_TYPE_VALID()" link="gconf-gconf-value.html#GCONF-VALUE-TYPE-VALID:CAPS"/>
     <keyword type="function" name="gconf_value_get_string ()" link="gconf-gconf-value.html#gconf-value-get-string"/>
     <keyword type="function" name="gconf_value_get_int ()" link="gconf-gconf-value.html#gconf-value-get-int"/>
@@ -202,7 +202,7 @@
     <keyword type="function" name="gconf_value_set_list_nocopy ()" link="gconf-gconf-value.html#gconf-value-set-list-nocopy"/>
     <keyword type="function" name="gconf_value_set_list ()" link="gconf-gconf-value.html#gconf-value-set-list"/>
     <keyword type="function" name="gconf_value_to_string ()" link="gconf-gconf-value.html#gconf-value-to-string"/>
-    <keyword type="struct" name="GConfMetaInfo" link="gconf-gconf-value.html#GConfMetaInfo"/>
+    <keyword type="struct" name="struct GConfMetaInfo" link="gconf-gconf-value.html#GConfMetaInfo"/>
     <keyword type="function" name="gconf_meta_info_new ()" link="gconf-gconf-value.html#gconf-meta-info-new"/>
     <keyword type="function" name="gconf_meta_info_free ()" link="gconf-gconf-value.html#gconf-meta-info-free"/>
     <keyword type="function" name="gconf_meta_info_get_schema ()" link="gconf-gconf-value.html#gconf-meta-info-get-schema"/>
@@ -211,7 +211,7 @@
     <keyword type="function" name="gconf_meta_info_set_schema ()" link="gconf-gconf-value.html#gconf-meta-info-set-schema"/>
     <keyword type="function" name="gconf_meta_info_set_mod_user ()" link="gconf-gconf-value.html#gconf-meta-info-set-mod-user"/>
     <keyword type="function" name="gconf_meta_info_set_mod_time ()" link="gconf-gconf-value.html#gconf-meta-info-set-mod-time"/>
-    <keyword type="struct" name="GConfEntry" link="gconf-gconf-value.html#GConfEntry"/>
+    <keyword type="struct" name="struct GConfEntry" link="gconf-gconf-value.html#GConfEntry"/>
     <keyword type="function" name="gconf_entry_get_key ()" link="gconf-gconf-value.html#gconf-entry-get-key"/>
     <keyword type="function" name="gconf_entry_get_value ()" link="gconf-gconf-value.html#gconf-entry-get-value"/>
     <keyword type="function" name="gconf_entry_get_schema_name ()" link="gconf-gconf-value.html#gconf-entry-get-schema-name"/>
@@ -270,7 +270,7 @@
     <keyword type="function" name="gconf_engine_set_schema ()" link="gconf-gconf.html#gconf-engine-set-schema"/>
     <keyword type="function" name="gconf_engine_set_list ()" link="gconf-gconf.html#gconf-engine-set-list"/>
     <keyword type="function" name="gconf_engine_set_pair ()" link="gconf-gconf.html#gconf-engine-set-pair"/>
-    <keyword type="struct" name="GConfEnumStringPair" link="gconf-gconf.html#GConfEnumStringPair"/>
+    <keyword type="struct" name="struct GConfEnumStringPair" link="gconf-gconf.html#GConfEnumStringPair"/>
     <keyword type="function" name="gconf_string_to_enum ()" link="gconf-gconf.html#gconf-string-to-enum"/>
     <keyword type="function" name="gconf_enum_to_string ()" link="gconf-gconf.html#gconf-enum-to-string"/>
     <keyword type="function" name="gconf_clear_cache ()" link="gconf-gconf.html#gconf-clear-cache"/>
@@ -280,7 +280,7 @@
     <keyword type="function" name="gconf_locale_cache_new ()" link="gconf-gconf-locale.html#gconf-locale-cache-new"/>
     <keyword type="function" name="gconf_locale_cache_free ()" link="gconf-gconf-locale.html#gconf-locale-cache-free"/>
     <keyword type="function" name="gconf_locale_cache_expire ()" link="gconf-gconf-locale.html#gconf-locale-cache-expire"/>
-    <keyword type="struct" name="GConfLocaleList" link="gconf-gconf-locale.html#GConfLocaleList"/>
+    <keyword type="struct" name="struct GConfLocaleList" link="gconf-gconf-locale.html#GConfLocaleList"/>
     <keyword type="function" name="gconf_locale_list_ref ()" link="gconf-gconf-locale.html#gconf-locale-list-ref"/>
     <keyword type="function" name="gconf_locale_list_unref ()" link="gconf-gconf-locale.html#gconf-locale-list-unref"/>
     <keyword type="function" name="gconf_locale_cache_get_list ()" link="gconf-gconf-locale.html#gconf-locale-cache-get-list"/>
@@ -311,12 +311,12 @@
     <keyword type="function" name="gconf_change_set_set_pair ()" link="gconf-gconf-changeset.html#gconf-change-set-set-pair"/>
     <keyword type="function" name="gconf_change_set_set_user_data ()" link="gconf-gconf-changeset.html#gconf-change-set-set-user-data"/>
     <keyword type="function" name="gconf_change_set_get_user_data ()" link="gconf-gconf-changeset.html#gconf-change-set-get-user-data"/>
-    <keyword type="constant" name="GCONF_CLIENT_PRELOAD_NONE" link="gconf-GConfClient.html#GCONF-CLIENT-PRELOAD-NONE:CAPS"/>
-    <keyword type="constant" name="GCONF_CLIENT_PRELOAD_ONELEVEL" link="gconf-GConfClient.html#GCONF-CLIENT-PRELOAD-ONELEVEL:CAPS"/>
-    <keyword type="constant" name="GCONF_CLIENT_PRELOAD_RECURSIVE" link="gconf-GConfClient.html#GCONF-CLIENT-PRELOAD-RECURSIVE:CAPS"/>
-    <keyword type="constant" name="GCONF_CLIENT_HANDLE_NONE" link="gconf-GConfClient.html#GCONF-CLIENT-HANDLE-NONE:CAPS"/>
-    <keyword type="constant" name="GCONF_CLIENT_HANDLE_UNRETURNED" link="gconf-GConfClient.html#GCONF-CLIENT-HANDLE-UNRETURNED:CAPS"/>
-    <keyword type="constant" name="GCONF_CLIENT_HANDLE_ALL" link="gconf-GConfClient.html#GCONF-CLIENT-HANDLE-ALL:CAPS"/>
+    <keyword type="constant" name="GCONF_CLIENT_PRELOAD_NONE" link="gconf-gconf-client.html#GCONF-CLIENT-PRELOAD-NONE:CAPS"/>
+    <keyword type="constant" name="GCONF_CLIENT_PRELOAD_ONELEVEL" link="gconf-gconf-client.html#GCONF-CLIENT-PRELOAD-ONELEVEL:CAPS"/>
+    <keyword type="constant" name="GCONF_CLIENT_PRELOAD_RECURSIVE" link="gconf-gconf-client.html#GCONF-CLIENT-PRELOAD-RECURSIVE:CAPS"/>
+    <keyword type="constant" name="GCONF_CLIENT_HANDLE_NONE" link="gconf-gconf-client.html#GCONF-CLIENT-HANDLE-NONE:CAPS"/>
+    <keyword type="constant" name="GCONF_CLIENT_HANDLE_UNRETURNED" link="gconf-gconf-client.html#GCONF-CLIENT-HANDLE-UNRETURNED:CAPS"/>
+    <keyword type="constant" name="GCONF_CLIENT_HANDLE_ALL" link="gconf-gconf-client.html#GCONF-CLIENT-HANDLE-ALL:CAPS"/>
     <keyword type="constant" name="GCONF_ERROR_SUCCESS" link="gconf-gconf-error.html#GCONF-ERROR-SUCCESS:CAPS"/>
     <keyword type="constant" name="GCONF_ERROR_FAILED" link="gconf-gconf-error.html#GCONF-ERROR-FAILED:CAPS"/>
     <keyword type="constant" name="GCONF_ERROR_NO_SERVER" link="gconf-gconf-error.html#GCONF-ERROR-NO-SERVER:CAPS"/>

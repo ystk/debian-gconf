@@ -3,13 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>GConfChangeSet</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
 <link rel="home" href="index.html" title="GConf Reference Manual">
 <link rel="up" href="ch01.html" title="Using the GConf library">
 <link rel="prev" href="gconf-gconf-locale.html" title="gconf-locale">
-<meta name="generator" content="GTK-Doc V1.14 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
-<link rel="chapter" href="ch01.html" title="Using the GConf library">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
@@ -26,7 +25,7 @@
                   <a href="#gconf-gconf-changeset.description" class="shortcut">Description</a>
 </td></tr>
 </table>
-<div class="refentry" title="GConfChangeSet">
+<div class="refentry">
 <a name="gconf-gconf-changeset"></a><div class="titlepage"></div>
 <div class="refnamediv"><table width="100%"><tr>
 <td valign="top">
@@ -35,82 +34,82 @@
 </td>
 <td valign="top" align="right"></td>
 </tr></table></div>
-<div class="refsynopsisdiv" title="Synopsis">
+<div class="refsynopsisdiv">
 <a name="gconf-gconf-changeset.synopsis"></a><h2>Synopsis</h2>
 <pre class="synopsis">                    <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet">GConfChangeSet</a>;
-<span class="returnvalue">void</span>                (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSetForeachFunc" title="GConfChangeSetForeachFunc ()">*GConfChangeSetForeachFunc</a>)        (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="returnvalue">GConfValue</span></a> *value,
-                                                         <span class="returnvalue">gpointer</span> user_data);
-<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-changeset.html#gconf-engine-commit-change-set" title="gconf_engine_commit_change_set ()">gconf_engine_commit_change_set</a>      (<a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="returnvalue">GConfEngine</span></a> *conf,
-                                                         <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         <span class="returnvalue">gboolean</span> remove_committed,
-                                                         <span class="returnvalue">GError</span> **err);
-<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a>*     <a class="link" href="gconf-gconf-changeset.html#gconf-engine-reverse-change-set" title="gconf_engine_reverse_change_set ()">gconf_engine_reverse_change_set</a>     (<a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="returnvalue">GConfEngine</span></a> *conf,
-                                                         <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         <span class="returnvalue">GError</span> **err);
-<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a>*     <a class="link" href="gconf-gconf-changeset.html#gconf-engine-change-set-from-currentv" title="gconf_engine_change_set_from_currentv ()">gconf_engine_change_set_from_currentv</a>
-                                                        (<a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="returnvalue">GConfEngine</span></a> *conf,
-                                                         const <span class="returnvalue">gchar</span> **keys,
-                                                         <span class="returnvalue">GError</span> **err);
-<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a>*     <a class="link" href="gconf-gconf-changeset.html#gconf-engine-change-set-from-current" title="gconf_engine_change_set_from_current ()">gconf_engine_change_set_from_current</a>
-                                                        (<a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="returnvalue">GConfEngine</span></a> *conf,
-                                                         <span class="returnvalue">GError</span> **err,
-                                                         const <span class="returnvalue">gchar</span> *first_key,
-                                                         ...);
-<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a>*     <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-new" title="gconf_change_set_new ()">gconf_change_set_new</a>                (void);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-ref" title="gconf_change_set_ref ()">gconf_change_set_ref</a>                (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-unref" title="gconf_change_set_unref ()">gconf_change_set_unref</a>              (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-clear" title="gconf_change_set_clear ()">gconf_change_set_clear</a>              (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs);
-<span class="returnvalue">guint</span>               <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-size" title="gconf_change_set_size ()">gconf_change_set_size</a>               (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-remove" title="gconf_change_set_remove ()">gconf_change_set_remove</a>             (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-foreach" title="gconf_change_set_foreach ()">gconf_change_set_foreach</a>            (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         <a class="link" href="gconf-gconf-changeset.html#GConfChangeSetForeachFunc" title="GConfChangeSetForeachFunc ()"><span class="returnvalue">GConfChangeSetForeachFunc</span></a> func,
-                                                         <span class="returnvalue">gpointer</span> user_data);
-<span class="returnvalue">gboolean</span>            <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-check-value" title="gconf_change_set_check_value ()">gconf_change_set_check_value</a>        (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="returnvalue">GConfValue</span></a> **value_retloc);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set" title="gconf_change_set_set ()">gconf_change_set_set</a>                (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="returnvalue">GConfValue</span></a> *value);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-nocopy" title="gconf_change_set_set_nocopy ()">gconf_change_set_set_nocopy</a>         (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="returnvalue">GConfValue</span></a> *value);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-unset" title="gconf_change_set_unset ()">gconf_change_set_unset</a>              (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-float" title="gconf_change_set_set_float ()">gconf_change_set_set_float</a>          (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <span class="returnvalue">gdouble</span> val);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-int" title="gconf_change_set_set_int ()">gconf_change_set_set_int</a>            (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <span class="returnvalue">gint</span> val);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-string" title="gconf_change_set_set_string ()">gconf_change_set_set_string</a>         (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         const <span class="returnvalue">gchar</span> *val);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-bool" title="gconf_change_set_set_bool ()">gconf_change_set_set_bool</a>           (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <span class="returnvalue">gboolean</span> val);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-schema" title="gconf_change_set_set_schema ()">gconf_change_set_set_schema</a>         (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <a class="link" href="gconf-gconf-schema.html#GConfSchema" title="GConfSchema"><span class="returnvalue">GConfSchema</span></a> *val);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-list" title="gconf_change_set_set_list ()">gconf_change_set_set_list</a>           (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="returnvalue">GConfValueType</span></a> list_type,
-                                                         <span class="returnvalue">GSList</span> *list);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-pair" title="gconf_change_set_set_pair ()">gconf_change_set_set_pair</a>           (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="returnvalue">GConfValueType</span></a> car_type,
-                                                         <a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="returnvalue">GConfValueType</span></a> cdr_type,
-                                                         <span class="returnvalue">gconstpointer</span> address_of_car,
-                                                         <span class="returnvalue">gconstpointer</span> address_of_cdr);
-<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-user-data" title="gconf_change_set_set_user_data ()">gconf_change_set_set_user_data</a>      (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         <span class="returnvalue">gpointer</span> data,
-                                                         <span class="returnvalue">GDestroyNotify</span> dnotify);
-<span class="returnvalue">gpointer</span>            <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-get-user-data" title="gconf_change_set_get_user_data ()">gconf_change_set_get_user_data</a>      (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs);
+<span class="returnvalue">void</span>                (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSetForeachFunc" title="GConfChangeSetForeachFunc ()">*GConfChangeSetForeachFunc</a>)        (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-changeset.html#gconf-engine-commit-change-set" title="gconf_engine_commit_change_set ()">gconf_engine_commit_change_set</a>      (<em class="parameter"><code><a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a> *conf</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> remove_committed</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    <a class="link" href="gconf-gconf-changeset.html#gconf-engine-reverse-change-set" title="gconf_engine_reverse_change_set ()">gconf_engine_reverse_change_set</a>     (<em class="parameter"><code><a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a> *conf</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    <a class="link" href="gconf-gconf-changeset.html#gconf-engine-change-set-from-currentv" title="gconf_engine_change_set_from_currentv ()">gconf_engine_change_set_from_currentv</a>
+                                                        (<em class="parameter"><code><a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a> *conf</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **keys</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);
+<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    <a class="link" href="gconf-gconf-changeset.html#gconf-engine-change-set-from-current" title="gconf_engine_change_set_from_current ()">gconf_engine_change_set_from_current</a>
+                                                        (<em class="parameter"><code><a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a> *conf</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_key</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);
+<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-new" title="gconf_change_set_new ()">gconf_change_set_new</a>                (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-ref" title="gconf_change_set_ref ()">gconf_change_set_ref</a>                (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-unref" title="gconf_change_set_unref ()">gconf_change_set_unref</a>              (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-clear" title="gconf_change_set_clear ()">gconf_change_set_clear</a>              (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-size" title="gconf_change_set_size ()">gconf_change_set_size</a>               (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-remove" title="gconf_change_set_remove ()">gconf_change_set_remove</a>             (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-foreach" title="gconf_change_set_foreach ()">gconf_change_set_foreach</a>            (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSetForeachFunc" title="GConfChangeSetForeachFunc ()"><span class="type">GConfChangeSetForeachFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-check-value" title="gconf_change_set_check_value ()">gconf_change_set_check_value</a>        (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a> **value_retloc</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set" title="gconf_change_set_set ()">gconf_change_set_set</a>                (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-nocopy" title="gconf_change_set_set_nocopy ()">gconf_change_set_set_nocopy</a>         (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-unset" title="gconf_change_set_unset ()">gconf_change_set_unset</a>              (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-float" title="gconf_change_set_set_float ()">gconf_change_set_set_float</a>          (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> val</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-int" title="gconf_change_set_set_int ()">gconf_change_set_set_int</a>            (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> val</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-string" title="gconf_change_set_set_string ()">gconf_change_set_set_string</a>         (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *val</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-bool" title="gconf_change_set_set_bool ()">gconf_change_set_set_bool</a>           (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> val</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-schema" title="gconf_change_set_set_schema ()">gconf_change_set_set_schema</a>         (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-schema.html#GConfSchema" title="GConfSchema"><span class="type">GConfSchema</span></a> *val</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-list" title="gconf_change_set_set_list ()">gconf_change_set_set_list</a>           (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> list_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *list</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-pair" title="gconf_change_set_set_pair ()">gconf_change_set_set_pair</a>           (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> car_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> cdr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> address_of_car</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> address_of_cdr</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set-user-data" title="gconf_change_set_set_user_data ()">gconf_change_set_set_user_data</a>      (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> dnotify</code></em>);
+<a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-get-user-data" title="gconf_change_set_get_user_data ()">gconf_change_set_get_user_data</a>      (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>);
 </pre>
 </div>
-<div class="refsect1" title="Description">
+<div class="refsect1">
 <a name="gconf-gconf-changeset.description"></a><h2>Description</h2>
 <p>
 a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> allows you to collect a set of changes to
@@ -131,9 +130,9 @@ set; however, for now the operation is <span class="emphasis"><em>not</em></span
 atomic.
 </p>
 </div>
-<div class="refsect1" title="Details">
+<div class="refsect1">
 <a name="gconf-gconf-changeset.details"></a><h2>Details</h2>
-<div class="refsect2" title="GConfChangeSet">
+<div class="refsect2">
 <a name="GConfChangeSet"></a><h3>GConfChangeSet</h3>
 <pre class="programlisting">typedef struct _GConfChangeSet GConfChangeSet;</pre>
 <p>
@@ -142,12 +141,12 @@ A change set can contain "set" and "unset" operations.
 </p>
 </div>
 <hr>
-<div class="refsect2" title="GConfChangeSetForeachFunc ()">
+<div class="refsect2">
 <a name="GConfChangeSetForeachFunc"></a><h3>GConfChangeSetForeachFunc ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                (*GConfChangeSetForeachFunc)        (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="returnvalue">GConfValue</span></a> *value,
-                                                         <span class="returnvalue">gpointer</span> user_data);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*GConfChangeSetForeachFunc)        (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a> *value</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>
 The type of a function passed to <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-foreach" title="gconf_change_set_foreach ()"><code class="function">gconf_change_set_foreach()</code></a>.
 The <em class="parameter"><code>cs</code></em> argument is the <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> you're iterating over. <em class="parameter"><code>key</code></em> is
@@ -160,34 +159,30 @@ user data passed to <a class="link" href="gconf-gconf-changeset.html#gconf-chang
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>the <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> being iterated over.
-</td>
+<td>the <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> being iterated over.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
-<td>the current key.
-</td>
+<td>the current key.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
-<td>the current value, or <span class="symbol">NULL</span>.
-</td>
+<td>the current value, or <span class="symbol">NULL</span>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
-<td>user data passed to <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-foreach" title="gconf_change_set_foreach ()"><code class="function">gconf_change_set_foreach()</code></a>.
-</td>
+<td>user data passed to <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-foreach" title="gconf_change_set_foreach ()"><code class="function">gconf_change_set_foreach()</code></a>.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_engine_commit_change_set ()">
+<div class="refsect2">
 <a name="gconf-engine-commit-change-set"></a><h3>gconf_engine_commit_change_set ()</h3>
-<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_engine_commit_change_set      (<a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="returnvalue">GConfEngine</span></a> *conf,
-                                                         <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         <span class="returnvalue">gboolean</span> remove_committed,
-                                                         <span class="returnvalue">GError</span> **err);</pre>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_engine_commit_change_set      (<em class="parameter"><code><a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a> *conf</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> remove_committed</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
 <p>
 Applies the changes in the change set to the <a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a> passed as
 the first argument. If <em class="parameter"><code>remove_committed</code></em> is <span class="symbol">TRUE</span>,
@@ -208,39 +203,34 @@ occurred will have been removed from the set. If any error occurs,
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>conf</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>remove_committed</code></em> :</span></p></td>
-<td>whether to remove successfully-committed changes from the set
-</td>
+<td>whether to remove successfully-committed changes from the set</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.
-</td>
+<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<span class="symbol">TRUE</span> on success, <span class="symbol">FALSE</span> if an error occurs.
-</td>
+<span class="symbol">TRUE</span> on success, <span class="symbol">FALSE</span> if an error occurs.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_engine_reverse_change_set ()">
+<div class="refsect2">
 <a name="gconf-engine-reverse-change-set"></a><h3>gconf_engine_reverse_change_set ()</h3>
-<pre class="programlisting"><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a>*     gconf_engine_reverse_change_set     (<a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="returnvalue">GConfEngine</span></a> *conf,
-                                                         <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         <span class="returnvalue">GError</span> **err);</pre>
+<pre class="programlisting"><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    gconf_engine_reverse_change_set     (<em class="parameter"><code><a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a> *conf</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
 <p>
 Creates a change set that would reverse <em class="parameter"><code>cs</code></em>. That is, for each change in <em class="parameter"><code>cs</code></em>,
 save the current state of that key in the returned change set.
@@ -250,34 +240,30 @@ save the current state of that key in the returned change set.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>conf</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>the <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> to be reverted.
-</td>
+<td>the <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> to be reverted.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.
-</td>
+<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the modified <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>the modified <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_engine_change_set_from_currentv ()">
+<div class="refsect2">
 <a name="gconf-engine-change-set-from-currentv"></a><h3>gconf_engine_change_set_from_currentv ()</h3>
-<pre class="programlisting"><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a>*     gconf_engine_change_set_from_currentv
-                                                        (<a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="returnvalue">GConfEngine</span></a> *conf,
-                                                         const <span class="returnvalue">gchar</span> **keys,
-                                                         <span class="returnvalue">GError</span> **err);</pre>
+<pre class="programlisting"><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    gconf_engine_change_set_from_currentv
+                                                        (<em class="parameter"><code><a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a> *conf</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> **keys</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>);</pre>
 <p>
 Creates a change set that will change the keys in
 <span class="symbol">NULL</span>terminated array <em class="parameter"><code>keys</code></em> to their current state.
@@ -287,36 +273,32 @@ Creates a change set that will change the keys in
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>conf</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>keys</code></em> :</span></p></td>
 <td>
-<span class="symbol">NULL</span>terminated array of key names.
-</td>
+<span class="symbol">NULL</span>terminated array of key names.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.
-</td>
+<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the newly allocated <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>the newly allocated <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_engine_change_set_from_current ()">
+<div class="refsect2">
 <a name="gconf-engine-change-set-from-current"></a><h3>gconf_engine_change_set_from_current ()</h3>
-<pre class="programlisting"><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a>*     gconf_engine_change_set_from_current
-                                                        (<a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="returnvalue">GConfEngine</span></a> *conf,
-                                                         <span class="returnvalue">GError</span> **err,
-                                                         const <span class="returnvalue">gchar</span> *first_key,
-                                                         ...);</pre>
+<pre class="programlisting"><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    gconf_engine_change_set_from_current
+                                                        (<em class="parameter"><code><a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a> *conf</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> **err</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *first_key</code></em>,
+                                                         <em class="parameter"><code>...</code></em>);</pre>
 <p>
 Convenient Varags version of <a class="link" href="gconf-gconf-changeset.html#gconf-engine-change-set-from-current" title="gconf_engine_change_set_from_current ()"><code class="function">gconf_engine_change_set_from_current()</code></a>.
 </p>
@@ -325,36 +307,27 @@ Convenient Varags version of <a class="link" href="gconf-gconf-changeset.html#gc
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>conf</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-engine.html#GConfEngine" title="GConfEngine"><span class="type">GConfEngine</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>err</code></em> :</span></p></td>
-<td>the return location for an allocated <span class="type">GError</span>, or <span class="symbol">NULL</span> to ignore errors.
-</td>
+<td>the return location for an allocated <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a>, or <span class="symbol">NULL</span> to ignore errors.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>first_key</code></em> :</span></p></td>
-<td>the first key, a char* value.
-</td>
-</tr>
-<tr>
-<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
-<td>the keys to be set.
-</td>
+<td>the first key, a char* value.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the newly allocated <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>the newly allocated <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_new ()">
+<div class="refsect2">
 <a name="gconf-change-set-new"></a><h3>gconf_change_set_new ()</h3>
-<pre class="programlisting"><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a>*     gconf_change_set_new                (void);</pre>
+<pre class="programlisting"><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    gconf_change_set_new                (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>
 Creates a new, empty <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>. The caller assumes one reference
 count, and must call <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-unref" title="gconf_change_set_unref ()"><code class="function">gconf_change_set_unref()</code></a> eventually.
@@ -363,31 +336,35 @@ count, and must call <a class="link" href="gconf-gconf-changeset.html#gconf-chan
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a new <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a new <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr></tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_ref ()">
+<div class="refsect2">
 <a name="gconf-change-set-ref"></a><h3>gconf_change_set_ref ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_ref                (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs);</pre>
+<pre class="programlisting"><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *    gconf_change_set_ref                (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>);</pre>
 <p>
 Increases the reference count of a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> by one.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
-<tbody><tr>
+<tbody>
+<tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
-</tr></tbody>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the referenced <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
+</tr>
+</tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_unref ()">
+<div class="refsect2">
 <a name="gconf-change-set-unref"></a><h3>gconf_change_set_unref ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_unref              (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_unref              (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>);</pre>
 <p>
 Decreases the reference count of a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> by one. If the
 reference count reaches 0, destroys the <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
@@ -396,15 +373,14 @@ reference count reaches 0, destroys the <a class="link" href="gconf-gconf-change
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr></tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_clear ()">
+<div class="refsect2">
 <a name="gconf-change-set-clear"></a><h3>gconf_change_set_clear ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_clear              (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_clear              (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>);</pre>
 <p>
 Clears all changes from a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>, so that committing the
 change set would have no effect.
@@ -413,39 +389,36 @@ change set would have no effect.
 <col align="left" valign="top">
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr></tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_size ()">
+<div class="refsect2">
 <a name="gconf-change-set-size"></a><h3>gconf_change_set_size ()</h3>
-<pre class="programlisting"><span class="returnvalue">guint</span>               gconf_change_set_size               (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs);</pre>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="returnvalue">guint</span></a>               gconf_change_set_size               (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>);</pre>
 <p>
-Returns the size of the changeset, a <span class="type">guint</span> value.
+Returns the size of the changeset, a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> value.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>the size, a <span class="type">guint</span> value.
-</td>
+<td>the size, a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"><span class="type">guint</span></a> value.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_remove ()">
+<div class="refsect2">
 <a name="gconf-change-set-remove"></a><h3>gconf_change_set_remove ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_remove             (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_remove             (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>);</pre>
 <p>
 Removes a change from a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>. The key given as the <em class="parameter"><code>key</code></em>
 argument will not be modified if this change set is committed.
@@ -456,23 +429,21 @@ If <em class="parameter"><code>key</code></em> is not in the change set, this fu
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
-<td>key to remove from the change set.
-</td>
+<td>key to remove from the change set.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_foreach ()">
+<div class="refsect2">
 <a name="gconf-change-set-foreach"></a><h3>gconf_change_set_foreach ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_foreach            (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         <a class="link" href="gconf-gconf-changeset.html#GConfChangeSetForeachFunc" title="GConfChangeSetForeachFunc ()"><span class="returnvalue">GConfChangeSetForeachFunc</span></a> func,
-                                                         <span class="returnvalue">gpointer</span> user_data);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_foreach            (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSetForeachFunc" title="GConfChangeSetForeachFunc ()"><span class="type">GConfChangeSetForeachFunc</span></a> func</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> user_data</code></em>);</pre>
 <p>
 Iterates over a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> by calling a
 <a class="link" href="gconf-gconf-changeset.html#GConfChangeSetForeachFunc" title="GConfChangeSetForeachFunc ()"><span class="type">GConfChangeSetForeachFunc</span></a> for each change in the set. See the
@@ -485,28 +456,26 @@ confuse the internal data structures and cause memory corruption.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>func</code></em> :</span></p></td>
-<td>function to call for each change in the change set.
+<td>function to call for each change in the change set. <span class="annotation">[<a href="http://foldoc.org/scope%20call"><span class="acronym">scope call</span></a>]</span>
 </td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
-<td>user data to pass to the <a class="link" href="gconf-gconf-changeset.html#GConfChangeSetForeachFunc" title="GConfChangeSetForeachFunc ()"><span class="type">GConfChangeSetForeachFunc</span></a>.
-</td>
+<td>user data to pass to the <a class="link" href="gconf-gconf-changeset.html#GConfChangeSetForeachFunc" title="GConfChangeSetForeachFunc ()"><span class="type">GConfChangeSetForeachFunc</span></a>.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_check_value ()">
+<div class="refsect2">
 <a name="gconf-change-set-check-value"></a><h3>gconf_change_set_check_value ()</h3>
-<pre class="programlisting"><span class="returnvalue">gboolean</span>            gconf_change_set_check_value        (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="returnvalue">GConfValue</span></a> **value_retloc);</pre>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="returnvalue">gboolean</span></a>            gconf_change_set_check_value        (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a> **value_retloc</code></em>);</pre>
 <p>
 Looks up the hash table associated with the <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> for the key <em class="parameter"><code>key</code></em>. If the key
 is found , the value is set in value_retloc.
@@ -516,34 +485,30 @@ is found , the value is set in value_retloc.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
-<td>the key to be searched in the changeset.
-</td>
+<td>the key to be searched in the changeset.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value_retloc</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="type">GConfValue</span></a> ** to hold the key, if found.
-</td>
+<td>a <a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a> ** to hold the key, if found.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>
-<span class="symbol">TRUE</span> on finding the key, <span class="symbol">FALSE</span> if key is not found.
-</td>
+<span class="symbol">TRUE</span> on finding the key, <span class="symbol">FALSE</span> if key is not found.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_set ()">
+<div class="refsect2">
 <a name="gconf-change-set-set"></a><h3>gconf_change_set_set ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set                (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="returnvalue">GConfValue</span></a> *value);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set                (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a> *value</code></em>);</pre>
 <p>
 Adds a "set" operation to a change set. This function is similar to
 <a class="link" href="gconf-gconf.html#gconf-engine-set" title="gconf_engine_set ()"><code class="function">gconf_engine_set()</code></a>, except that no errors can occur (errors occur later, when
@@ -554,31 +519,28 @@ you try to commit the change set).
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
-<td>the key to change.
-</td>
+<td>the key to change.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
-<td>the value to change the key to.
-</td>
+<td>the value to change the key to.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_set_nocopy ()">
+<div class="refsect2">
 <a name="gconf-change-set-set-nocopy"></a><h3>gconf_change_set_set_nocopy ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_nocopy         (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="returnvalue">GConfValue</span></a> *value);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_nocopy         (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a> *value</code></em>);</pre>
 <p>
 Like <a class="link" href="gconf-gconf-changeset.html#gconf-change-set-set" title="gconf_change_set_set ()"><code class="function">gconf_change_set_set()</code></a>, except that the <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> takes
-ownership of the <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="type">GConfValue</span></a>. You should not use the value again.  It
+ownership of the <a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a>. You should not use the value again.  It
 will be destroyed when the change is removed from the <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>,
 the change is modified, or the <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> is destroyed.
 </p>
@@ -587,27 +549,24 @@ the change is modified, or the <a class="link" href="gconf-gconf-changeset.html#
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
-<td>the key to change.
-</td>
+<td>the key to change.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
-<td>the new value of <em class="parameter"><code>key</code></em>.
-</td>
+<td>the new value of <em class="parameter"><code>key</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_unset ()">
+<div class="refsect2">
 <a name="gconf-change-set-unset"></a><h3>gconf_change_set_unset ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_unset              (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_unset              (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>);</pre>
 <p>
 Adds an "unset" operation to a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>. This function
 schedules a <a class="link" href="gconf-gconf.html#gconf-engine-unset" title="gconf_engine_unset ()"><code class="function">gconf_engine_unset()</code></a>.
@@ -617,150 +576,136 @@ schedules a <a class="link" href="gconf-gconf.html#gconf-engine-unset" title="gc
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
-<td>the key to unset.
-</td>
+<td>the key to unset.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_set_float ()">
+<div class="refsect2">
 <a name="gconf-change-set-set-float"></a><h3>gconf_change_set_set_float ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_float          (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <span class="returnvalue">gdouble</span> val);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_float          (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> val</code></em>);</pre>
 <p>
-Adds a "set" operation; takes a <span class="type">gdouble</span> argument, so you can avoid
-creating a <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="type">GConfValue</span></a>.
+Adds a "set" operation; takes a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gdouble"><span class="type">gdouble</span></a> argument, so you can avoid
+creating a <a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
-<td>the key to set.
-</td>
+<td>the key to set.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
-<td>the new value of <em class="parameter"><code>key</code></em>.
-</td>
+<td>the new value of <em class="parameter"><code>key</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_set_int ()">
+<div class="refsect2">
 <a name="gconf-change-set-set-int"></a><h3>gconf_change_set_set_int ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_int            (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <span class="returnvalue">gint</span> val);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_int            (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> val</code></em>);</pre>
 <p>
-Adds a "set" operation; takes a <span class="type">gint</span> argument, so you can avoid
-creating a <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="type">GConfValue</span></a>.
+Adds a "set" operation; takes a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"><span class="type">gint</span></a> argument, so you can avoid
+creating a <a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
-<td>the key to set.
-</td>
+<td>the key to set.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
-<td>the new value of <em class="parameter"><code>key</code></em>.
-</td>
+<td>the new value of <em class="parameter"><code>key</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_set_string ()">
+<div class="refsect2">
 <a name="gconf-change-set-set-string"></a><h3>gconf_change_set_set_string ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_string         (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         const <span class="returnvalue">gchar</span> *val);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_string         (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *val</code></em>);</pre>
 <p>
-Adds a "set" operation; takes a <span class="type">gchar</span>* argument, so you can avoid
-creating a <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="type">GConfValue</span></a>.
+Adds a "set" operation; takes a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a>* argument, so you can avoid
+creating a <a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
-<td>the key to set.
-</td>
+<td>the key to set.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
-<td>the new value of <em class="parameter"><code>key</code></em>.
-</td>
+<td>the new value of <em class="parameter"><code>key</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_set_bool ()">
+<div class="refsect2">
 <a name="gconf-change-set-set-bool"></a><h3>gconf_change_set_set_bool ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_bool           (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <span class="returnvalue">gboolean</span> val);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_bool           (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> val</code></em>);</pre>
 <p>
-Adds a "set" operation; takes a <span class="type">gboolean</span> argument, so you can avoid
-creating a <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="type">GConfValue</span></a>.
+Adds a "set" operation; takes a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"><span class="type">gboolean</span></a> argument, so you can avoid
+creating a <a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a>.
 </p>
 <div class="variablelist"><table border="0">
 <col align="left" valign="top">
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
-<td>the key to set.
-</td>
+<td>the key to set.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
-<td>the new value of <em class="parameter"><code>key</code></em>.
-</td>
+<td>the new value of <em class="parameter"><code>key</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_set_schema ()">
+<div class="refsect2">
 <a name="gconf-change-set-set-schema"></a><h3>gconf_change_set_set_schema ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_schema         (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <a class="link" href="gconf-gconf-schema.html#GConfSchema" title="GConfSchema"><span class="returnvalue">GConfSchema</span></a> *val);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_schema         (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-schema.html#GConfSchema" title="GConfSchema"><span class="type">GConfSchema</span></a> *val</code></em>);</pre>
 <p>
 Adds a "set" operation; takes a <a class="link" href="gconf-gconf-schema.html#GConfSchema" title="GConfSchema"><span class="type">GConfSchema</span></a> argument, so you can
-avoid creating a <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="type">GConfValue</span></a>. The schema is copied, <em class="parameter"><code>val</code></em> is left
+avoid creating a <a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a>. The schema is copied, <em class="parameter"><code>val</code></em> is left
 unmodified.
 </p>
 <div class="variablelist"><table border="0">
@@ -768,32 +713,29 @@ unmodified.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
-<td>the key to set.
-</td>
+<td>the key to set.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
-<td>the new value of <em class="parameter"><code>key</code></em>.
-</td>
+<td>the new value of <em class="parameter"><code>key</code></em>.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_set_list ()">
+<div class="refsect2">
 <a name="gconf-change-set-set-list"></a><h3>gconf_change_set_set_list ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_list           (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="returnvalue">GConfValueType</span></a> list_type,
-                                                         <span class="returnvalue">GSList</span> *list);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_list           (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> list_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"><span class="type">GSList</span></a> *list</code></em>);</pre>
 <p>
-Adds a "set" operation; takes a <span class="type">GList</span> argument and the type of the
-list, so you can avoid creating a <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="type">GConfValue</span></a>. This results in the
+Adds a "set" operation; takes a <a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> argument and the type of the
+list, so you can avoid creating a <a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a>. This results in the
 list of values being set for the key.
 </p>
 <div class="variablelist"><table border="0">
@@ -801,39 +743,35 @@ list of values being set for the key.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
-<td>the key to set.
-</td>
+<td>the key to set.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>list_type</code></em> :</span></p></td>
-<td>the type of the list.
-</td>
+<td>the type of the list.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
-<td>a <span class="type">GList</span> containing the values to be set.
-</td>
+<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"><span class="type">GList</span></a> containing the values to be set.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_set_pair ()">
+<div class="refsect2">
 <a name="gconf-change-set-set-pair"></a><h3>gconf_change_set_set_pair ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_pair           (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         const <span class="returnvalue">gchar</span> *key,
-                                                         <a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="returnvalue">GConfValueType</span></a> car_type,
-                                                         <a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="returnvalue">GConfValueType</span></a> cdr_type,
-                                                         <span class="returnvalue">gconstpointer</span> address_of_car,
-                                                         <span class="returnvalue">gconstpointer</span> address_of_cdr);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_pair           (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code>const <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"><span class="type">gchar</span></a> *key</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> car_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="gconf-gconf-value.html#GConfValueType" title="enum GConfValueType"><span class="type">GConfValueType</span></a> cdr_type</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> address_of_car</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gconstpointer"><span class="type">gconstpointer</span></a> address_of_cdr</code></em>);</pre>
 <p>
 Adds a "set" operation; takes a pointer to the addresses of the pair
-of values, so you can avoid creating a <a class="link" href="gconf-gconf-value.html#GConfValue" title="GConfValue"><span class="type">GConfValue</span></a>. This results in
+of values, so you can avoid creating a <a class="link" href="gconf-gconf-value.html#GConfValue" title="struct GConfValue"><span class="type">GConfValue</span></a>. This results in
 the pair of values being set for the key.
 </p>
 <div class="variablelist"><table border="0">
@@ -841,43 +779,37 @@ the pair of values being set for the key.
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
-<td>the key to set.
-</td>
+<td>the key to set.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>car_type</code></em> :</span></p></td>
-<td>the type of the pair's first field. (car)
-</td>
+<td>the type of the pair's first field. (car)</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cdr_type</code></em> :</span></p></td>
-<td>the type of the pair's second field. (cdr)
-</td>
+<td>the type of the pair's second field. (cdr)</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address_of_car</code></em> :</span></p></td>
-<td>address of the car.
-</td>
+<td>address of the car.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address_of_cdr</code></em> :</span></p></td>
-<td>address of the cdr.
-</td>
+<td>address of the cdr.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_set_user_data ()">
+<div class="refsect2">
 <a name="gconf-change-set-set-user-data"></a><h3>gconf_change_set_set_user_data ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_user_data      (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs,
-                                                         <span class="returnvalue">gpointer</span> data,
-                                                         <span class="returnvalue">GDestroyNotify</span> dnotify);</pre>
+<pre class="programlisting"><span class="returnvalue">void</span>                gconf_change_set_set_user_data      (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a> data</code></em>,
+                                                         <em class="parameter"><code><a href="http://library.gnome.org/devel/glib/unstable/glib-Datasets.html#GDestroyNotify"><span class="type">GDestroyNotify</span></a> dnotify</code></em>);</pre>
 <p>
 Sets the user_data and the destroy notification function fields of the
 <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
@@ -887,26 +819,23 @@ Sets the user_data and the destroy notification function fields of the
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
-<td>a <span class="type">gpointer</span>.
-</td>
+<td>a <a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="type">gpointer</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>dnotify</code></em> :</span></p></td>
-<td>a pointer to the function to be called during destroy.
-</td>
+<td>a pointer to the function to be called during destroy.</td>
 </tr>
 </tbody>
 </table></div>
 </div>
 <hr>
-<div class="refsect2" title="gconf_change_set_get_user_data ()">
+<div class="refsect2">
 <a name="gconf-change-set-get-user-data"></a><h3>gconf_change_set_get_user_data ()</h3>
-<pre class="programlisting"><span class="returnvalue">gpointer</span>            gconf_change_set_get_user_data      (<a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="returnvalue">GConfChangeSet</span></a> *cs);</pre>
+<pre class="programlisting"><a href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"><span class="returnvalue">gpointer</span></a>            gconf_change_set_get_user_data      (<em class="parameter"><code><a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a> *cs</code></em>);</pre>
 <p>
 Returns the user_data field of the <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
 </p>
@@ -915,13 +844,11 @@ Returns the user_data field of the <a class="link" href="gconf-gconf-changeset.h
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>cs</code></em> :</span></p></td>
-<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.
-</td>
+<td>a <a class="link" href="gconf-gconf-changeset.html#GConfChangeSet" title="GConfChangeSet"><span class="type">GConfChangeSet</span></a>.</td>
 </tr>
 <tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
-<td>a pointer to the user_data.
-</td>
+<td>a pointer to the user_data.</td>
 </tr>
 </tbody>
 </table></div>
@@ -930,6 +857,6 @@ Returns the user_data field of the <a class="link" href="gconf-gconf-changeset.h
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.14</div>
+          Generated by GTK-Doc V1.18</div>
 </body>
 </html>

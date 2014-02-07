@@ -1,7 +1,6 @@
-debian/tmp/usr/include
-debian/tmp/usr/lib/*.so
-debian/tmp/usr/lib/*.a
-debian/tmp/usr/lib/*.la
-debian/tmp/usr/share/aclocal
-debian/tmp/usr/lib/pkgconfig
-debian/tmp/usr/share/gtk-doc/html/gconf/* usr/share/doc/gconf2/html/
+usr/include
+usr/lib/*/*.so
+usr/lib/*/*.a
+usr/share/aclocal
+usr/share/gir-1.0
+usr/lib/*/pkgconfig

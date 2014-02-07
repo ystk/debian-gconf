@@ -710,6 +710,18 @@ copy_value_list(GSList* list)
   return copy;
 }
 
+GType
+gconf_value_get_type ()
+{
+  static GType type = 0;
+
+  if (type == 0)
+    type = g_boxed_type_register_static (g_intern_static_string ("GConfValue"),
+                                         (GBoxedCopyFunc) gconf_value_copy,
+                                         (GBoxedFreeFunc) gconf_value_free);
+  return type;
+}
+
 GConfValue* 
 gconf_value_copy (const GConfValue* src)
 {
@@ -883,6 +895,18 @@ gconf_value_get_list_type (const GConfValue *value)
   return REAL_VALUE (value)->d.list_data.type;
 }
 
+/**
+ * gconf_value_get_list:
+ * @value: a #GConfValue.
+ *
+ * Returns a #GSList containing #GConfValue objects. Each #GConfValue in
+ * the returned list will have the type returned by
+ * gconf_value_get_list_type(). Remember that the empty #GSList is equal to
+ * <symbol>NULL</symbol>.  The list is not a copy; it is "owned" by the
+ * #GConfValue and will be destroyed when the #GConfValue is destroyed.
+ *
+ * Return value: (element-type GConfValue) (transfer none): a #GList.
+ */
 GSList*
 gconf_value_get_list (const GConfValue *value)
 {
@@ -1439,6 +1463,18 @@ typedef struct {
 
 #define REAL_ENTRY(x) ((GConfRealEntry*)(x))
 
+GType
+gconf_entry_get_type ()
+{
+  static GType type = 0;
+
+  if (type == 0)
+    type = g_boxed_type_register_static (g_intern_static_string ("GConfEntry"),
+                                         (GBoxedCopyFunc) gconf_entry_ref,
+                                         (GBoxedFreeFunc) gconf_entry_unref);
+  return type;
+}
+
 GConfEntry*
 gconf_entry_new (const char *key,
                  const GConfValue  *val)
@@ -1465,12 +1501,14 @@ gconf_entry_new_nocopy (char* key, GConfValue* val)
   return (GConfEntry*) real;
 }
 
-void
+GConfEntry *
 gconf_entry_ref (GConfEntry *entry)
 {
-  g_return_if_fail (entry != NULL);
+  g_return_val_if_fail (entry != NULL, NULL);
   
   REAL_ENTRY (entry)->refcount += 1;
+
+  return entry;
 }
 
 void

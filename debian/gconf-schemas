@@ -58,8 +58,9 @@ if options.register_all:
 
 if schemas:
     tmp_home=tempfile.mkdtemp(prefix='gconf-')
-    env={'HOME': tmp_home,
-         'GCONF_CONFIG_SOURCE': 'xml:readwrite:'+defaults_dest}
+    env=os.environ.copy()
+    env['HOME'] = tmp_home
+    env['GCONF_CONFIG_SOURCE'] = 'xml:readwrite:'+defaults_dest
     if options.register:
       arg='--makefile-install-rule'
     else:

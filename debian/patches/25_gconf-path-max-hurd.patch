@@ -1,9 +1,8 @@
-diff -Naur GConf-2.6.4.orig/backends/markup-tree.c GConf-2.6.4/backends/markup-tree.c
---- GConf-2.8.1.orig/backends/markup-tree.c	2004-09-29 14:09:44.000000000 +0200
-+++ GConf-2.8.1/backends/markup-tree.c	2004-09-29 14:14:01.000000000 +0200
-@@ -34,6 +34,11 @@
- #include <stdio.h>
- #include <time.h>
+--- a/backends/markup-tree.c
++++ b/backends/markup-tree.c
+@@ -71,6 +71,11 @@
+ }
+ #endif
  
 +/* PATH_MAX is not defined in limits.h on some platforms */
 +#ifndef PATH_MAX
@@ -13,11 +12,10 @@ diff -Naur GConf-2.6.4.orig/backends/markup-tree.c GConf-2.6.4/backends/markup-t
  typedef struct
  {
    char       *locale;
-diff -Naur GConf-2.6.4.orig/backends/xml-dir.c GConf-2.6.4/backends/xml-dir.c
---- GConf-2.8.1.orig/backends/xml-dir.c	2004-09-29 14:09:44.000000000 +0200
-+++ GConf-2.8.1/backends/xml-dir.c	2004-09-29 14:11:59.000000000 +0200
+--- a/backends/xml-dir.c
++++ b/backends/xml-dir.c
 @@ -36,6 +36,11 @@
-
+ 
  #include "gconf/gconf-internals.h"
  
 +/* PATH_MAX is not defined in limits.h on some platforms */

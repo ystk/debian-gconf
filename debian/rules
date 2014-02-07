@@ -2,12 +2,8 @@
 
 include /usr/share/cdbs/1/rules/debhelper.mk
 include /usr/share/cdbs/1/class/gnome.mk
-include /usr/share/cdbs/1/rules/patchsys-quilt.mk
 include /usr/share/cdbs/1/rules/utils.mk
 include /usr/share/gnome-pkg-tools/1/rules/uploaders.mk
-include /usr/share/gnome-pkg-tools/1/rules/gnome-version.mk
-include /usr/share/gnome-pkg-tools/1/rules/clean-la.mk
-include /usr/share/gnome-pkg-tools/1/rules/patch-translations.mk
 -include /usr/share/gnome-pkg-tools/1/rules/gnome-get-source.mk
 
 GNOME_MODULE := GConf
@@ -23,15 +19,22 @@ clean::
 		/usr/share/sgml/docbook/stylesheet/xsl/nwalsh/manpages/docbook.xsl $<
 
 DEB_INSTALL_DOCS_gconf2 += doc/FAQ.txt NEWS README TODO
-DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc --libexecdir=/usr/lib/libgconf2-4
-DEB_MAKE_INVOKE += pkglibdir=/usr/lib/libgconf2-4
+
+DEB_CONFIGURE_EXTRA_FLAGS += --enable-gtk-doc \
+                             --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH) \
+                             --libexecdir=\$${libdir}/gconf \
+                             --with-gtk=3.0 \
+                             --disable-orbit
+
+DEB_MAKE_INVOKE += pkglibdir=/usr/lib/$(DEB_HOST_MULTIARCH)/gconf
 
 LDFLAGS += -Wl,-z,defs -Wl,--as-needed
 
-DEB_DH_MAKESHLIBS_ARGS_libgconf2-4 += -Xbackend -V"libgconf2-4 (>= 2.27.0)"
-DEB_DH_SHLIBDEPS_ARGS += -Xgconf-sanity-check
+DEB_DH_MAKESHLIBS_ARGS_gconf-service += -Xbackend
+DEB_DH_MAKESHLIBS_ARGS_libgconf-2-4 += -V"libgconf-2-4 (>= 2.31.1), gconf-service"
 
 DEB_COMPRESS_EXCLUDE += usr/share/doc/gconf2/html
 
-binary-predeb/gconf2::
-	dh_pysupport -p$(cdbs_curpkg)
+binary-install/gconf2::
+	dh_python2 -p$(cdbs_curpkg)
+

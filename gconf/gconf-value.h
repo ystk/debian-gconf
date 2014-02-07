@@ -22,6 +22,7 @@
 #define GCONF_GCONF_VALUE_H
 
 #include <glib.h>
+#include <glib-object.h>
 #include "gconf-error.h"
 
 G_BEGIN_DECLS
@@ -76,6 +77,7 @@ GConfValue* gconf_value_new_from_string      (GConfValueType type,
                                               const gchar* str,
                                               GError** err);
 
+GType       gconf_value_get_type             (void) G_GNUC_CONST;
 GConfValue* gconf_value_copy                 (const GConfValue* src);
 void        gconf_value_free                 (GConfValue* value);
 
@@ -124,6 +126,11 @@ gchar*      gconf_value_encode               (GConfValue  *val);
  * info into GConfEntry, though the transition isn't complete.
  */
 
+/* Skipped from introspection because it's not registered as boxed */
+/**
+ * GConfMetaInfo: (skip)
+ *
+ */
 typedef struct _GConfMetaInfo GConfMetaInfo;
 
 struct _GConfMetaInfo {
@@ -163,6 +170,7 @@ struct _GConfEntry {
   GConfValue *value;
 };
 
+GType       gconf_entry_get_type        (void) G_GNUC_CONST;
 const char* gconf_entry_get_key         (const GConfEntry *entry);
 GConfValue* gconf_entry_get_value       (const GConfEntry *entry);
 const char* gconf_entry_get_schema_name (const GConfEntry *entry);
@@ -178,7 +186,7 @@ GConfEntry* gconf_entry_copy             (const GConfEntry *src);
 #ifndef GCONF_DISABLE_DEPRECATED
 void        gconf_entry_free             (GConfEntry  *entry);
 #endif
-void        gconf_entry_ref   (GConfEntry *entry);
+GConfEntry* gconf_entry_ref   (GConfEntry *entry);
 void        gconf_entry_unref (GConfEntry *entry);
 
 /* Transfer ownership of value to the caller. */

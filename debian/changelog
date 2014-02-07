@@ -1,3 +1,236 @@
+gconf (3.2.5-1+build1) unstable; urgency=low
+
+  * No source changes; rebuild with xz compression.
+
+ -- Michael Biebl <biebl@debian.org>  Tue, 07 Aug 2012 14:14:52 +0200
+
+gconf (3.2.5-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump Build-Depends on cdbs and debhelper for multiarch support.
+  * Bump Build-Depends on libglib2.0-dev to (>= 2.31.0).
+  * Drop explicit Build-Depends on gir1.2-glib-2.0.
+  * Refresh patches.
+  * Bump Standards-Version to 3.9.3.
+
+ -- Michael Biebl <biebl@debian.org>  Sat, 28 Apr 2012 01:17:36 +0200
+
+gconf (3.2.3-4) unstable; urgency=medium
+
+  * Let libgconf2-4 and libgconf-2-4 break gconf2 << 3.2.3-2 to avoid 
+    triggering gconf2 while in an inconsistent state. Thanks a lot to 
+    Steve Langasek for the analysis. Closes: #663167.
+
+ -- Josselin Mouette <joss@debian.org>  Sat, 17 Mar 2012 17:23:46 +0100
+
+gconf (3.2.3-3) unstable; urgency=medium
+
+  * Let gconf2-common Breaks: libgconf2-4 (<< 3.2.3-2), to avoid partial
+    upgrades (closes: #661380).
+
+ -- Jordi Mallach <jordi@debian.org>  Sun, 26 Feb 2012 22:26:14 +0100
+
+gconf (3.2.3-2) unstable; urgency=low
+
+  [ Michael Biebl ]
+  * debian/libgconf2-dev.install:
+    - Remove libtool .la files.
+  * debian/control.in:
+    - Remove obsolete Conflicts and Replaces.
+    - Change section of gir1.2-gconf-2.0 to introspection.
+  * Rely on cdbs to call dh_girepository. Bump Build-Depends accordingly.
+  * Switch to dh_python2.
+
+  [ Laurent Bigonville ]
+  * Add debian/patches/05_readd_gconf_engine_key_is_writable.patch: Add
+    missing function in D-Bus variant that causes ABI breakage (Closes: #649112)
+
+  [ Jordi Mallach ]
+  * Add a NEWS entry explaining the necessity of a session restart after
+    a GConf 2.32 → GConf 3.2 upgrade, due to the ORBit → D-Bus
+    transition (closes: #648673).
+
+  [ Josselin Mouette ]
+  * Convert to Multi-Arch. Closes: #652861.
+    + gconf2, gconf2-common, gconf-defaults-service are M-A: foreign.
+    + Move the daemon to a multiarch path.
+    + Tighten dependencies.
+    + Remove the sanity-check binary, nothing uses it anymore.
+      Closes: #649297, #645580.
+    + Move the daemon and the activation file to gconf-service, a new 
+      MA: foreign package.
+    + Add appropriate Breaks/Replaces for the activation file.
+    + Rename libgconf2-4 to libgconf-2-4, make it MA: same.
+    + Make the shlibs add both libgconf-2-4 and gconf-service.
+    + Make libgconf2-4 a dummy MA: same package depending on both too.
+    + gconf-gsettings-backend is MA: same.
+    + Move dbus dependency to gconf-service, make it dbus-x11.
+  * Move the API documentation to libgconf2-doc.
+  * Get rid of the symlink for documentation.
+  * Remove unused gnome-version.mk.
+  * gconf-schemas, update-gconf-defaults: don’t purge the environment 
+    entirely. Closes: #636083.
+
+ -- Josselin Mouette <joss@debian.org>  Thu, 23 Feb 2012 21:56:45 +0100
+
+gconf (3.2.3-1) unstable; urgency=low
+
+  [ Jeremy Bicha ]
+  * New upstream release
+  * debian/control.in:
+    - Use GTK 3
+    - Drop orbit dependency
+    - Updated Vcs-Browser link
+  * debian/copyright: Fixed lintian warning
+  * debian/rules:
+    - Explicity disable orbit
+  * debian/watch: Switch to .xz tarballs
+  * 02_fix_wrong_return_value.patch: Updated
+
+  [ Josselin Mouette ]
+  * Split the GSettings backend into a gconf-gsettings-backend package 
+    that provides gsettings-backend. Closes: #633442.
+  * New upstream release.
+
+ -- Josselin Mouette <joss@debian.org>  Sat, 12 Nov 2011 14:17:51 +0100
+
+gconf (2.32.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 16 Jun 2011 17:45:14 +0200
+
+gconf (2.32.3-2) unstable; urgency=low
+
+  * debian/watch: Switch to .bz2 tarballs.
+  * Bump debhelper compatibility level to 8.
+    - Bump Build-Depends on debhelper.
+    - Strip leading debian/tmp/ from .install files.
+  * Bump Standards-Version to 3.9.2. No further changes.
+  * Update package description. Fix spelling error "allows to" found by
+    lintian.
+  * Drop Build-Depends on dpkg-dev (>= 1.13.19). Even lenny has a more recent
+    version.
+  * Upload to unstable, drop check-dist include.
+
+ -- Michael Biebl <biebl@debian.org>  Fri, 03 Jun 2011 22:08:15 +0200
+
+gconf (2.32.3-1) experimental; urgency=low
+
+  [ Josselin Mouette ]
+  * Make the -dev package depend on the gir package.
+
+  [ Sebastien Bacher ]
+  * New upstream version
+  * debian/control.in: updated Standards-Version
+  * debian/patches/01_defaults_path.patch: new version update
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 18 May 2011 13:23:03 +0200
+
+gconf (2.32.1-2) experimental; urgency=low
+
+  * debian/po-up/*:
+    + Removed, the patch has been merged upstream so there's nothing
+      to translate.
+  * debian/rules:
+    + Remove patch-translations.mk.
+  * Update to the new gir policy:
+    - Rename gir1.0-gconf-2.0 to gir1.2-gconf-2.0.
+    - Bump the gobject-introspection build dependency.
+    - Build depend on gir1.2 packages.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Sun, 12 Dec 2010 15:59:47 +0100
+
+gconf (2.32.1-1) experimental; urgency=low
+
+  [ Josselin Mouette ]
+  * Include patch-translations.mk, bump build-depends accordingly.
+  * Include 03_error_message.patch in POTFILES.in.
+  * pt_BR.po: Brazilian Portuguese translation. Closes: #599032.
+  * fr.po: French translation by Christian Perrier. Closes: #599049.
+  * da.po: Danish translation by Joe Hansen. Closes: #599125.
+  * cs.po: Czech translation by Michal Simunek. Closes: #599198.
+  * update-gconf-defaults: patch from Ubuntu to deal with broken 
+    symlinks. Closes: #599393. Thanks Michael Vogt.
+  * de.po: German translation by Helge Kreutzmann. Closes: #599683.
+  * sv.po: Swedish translation by Martin Bagge. Closes: #599854.
+  * 04_manpage.patch: patch from A. Costa. Fixes typos in the manual 
+    page. Closes: #600899.
+
+  [ Sjoerd Simons ]
+  * New upstream release
+  * Bump gobject-introspection to the lastest version to generate the most
+    recent .gir version
+  * debian/patches/03_error_message.patch
+    + Removed, merged upstream
+  * debian/rules:
+    + Specify compilation with gtk2
+
+  [ Emilio Pozuelo Monfort ]
+  * Switch to source format 3.0 (quilt).
+  * debian/patches/*:
+    - Updated to apply cleanly.
+
+ -- Emilio Pozuelo Monfort <pochu@debian.org>  Mon, 06 Dec 2010 00:53:14 +0100
+
+gconf (2.31.5-1) experimental; urgency=low
+
+  [ Josselin Mouette ]
+  * Patch from Ubuntu - thanks to Sébastien Bacher. Closes: #587786.
+    * debian/control.in:
+      - list a new gir1.0-gconf-2.0 binary
+      - libgconf2-dev replaces gir-repository-dev
+    * debian/gir1.0-gconf-2.0.install,
+      debian/libgconf2-dev.install:
+      - install the gir and typelib
+    * debian/rules:
+      - use dh_girepository
+  * Fix description for the GIR package.
+
+  [ Sjoerd Simons ]
+  * New upstream release
+
+ -- Sjoerd Simons <sjoerd@debian.org>  Sat, 03 Jul 2010 15:36:20 +0100
+
+gconf (2.31.4-1) experimental; urgency=low
+
+  [ Josselin Mouette ]
+  * 03_error_message.patch: new patch. Replace the error message by
+    something more accurate nowadays. Closes: #582839.
+
+  [ Sebastian Dröge ]
+  * New upstream development release:
+    + debian/control.in:
+      - Update GLib build dependency to >= 2.25.9.
+
+ -- Sebastian Dröge <slomo@debian.org>  Sat, 19 Jun 2010 08:07:51 +0200
+
+gconf (2.31.3-1) experimental; urgency=low
+
+  * New upstream development release:
+    + debian/gconf2.install:
+      - Add autostart file for GSettings.
+
+ -- Sebastian Dröge <slomo@debian.org>  Tue, 25 May 2010 11:56:39 +0200
+
+gconf (2.31.2-1) experimental; urgency=low
+
+  * New upstream development release.
+
+ -- Sebastian Dröge <slomo@debian.org>  Fri, 23 Apr 2010 12:59:31 +0200
+
+gconf (2.31.1-1) experimental; urgency=low
+
+  * New upstream development release:
+    + debian/control.in:
+      - Update build-dependencies and dependencies.
+    + debian/libgconf2.install:
+      - Add GSettings backend module.
+    + debian/rules:
+      - Update shlibs version to >= 2.31.1 because of new API.
+
+ -- Sebastian Dröge <slomo@debian.org>  Wed, 21 Apr 2010 09:04:14 +0200
+
 gconf (2.28.1-6) unstable; urgency=low
 
   * de.po: German translation by Helge Kreutzmann. Closes: #599683.

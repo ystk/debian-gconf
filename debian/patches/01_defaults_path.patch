@@ -1,6 +1,7 @@
-diff -urN GConf-2.28.0.orig/defaults/gconf-defaults.c GConf-2.28.0/defaults/gconf-defaults.c
---- GConf-2.28.0.orig/defaults/gconf-defaults.c	2009-08-19 17:35:32.000000000 +0200
-+++ GConf-2.28.0/defaults/gconf-defaults.c	2009-10-04 12:17:01.000000000 +0200
+Index: GConf-3.2.5/defaults/gconf-defaults.c
+===================================================================
+--- GConf-3.2.5.orig/defaults/gconf-defaults.c	2012-03-07 19:08:55.000000000 +0100
++++ GConf-3.2.5/defaults/gconf-defaults.c	2012-04-26 18:33:36.134860479 +0200
 @@ -811,7 +811,7 @@
  	else {
  		adata->annotation_key = "org.gnome.gconf.defaults.set-system.prefix";
@@ -10,15 +11,16 @@ diff -urN GConf-2.28.0.orig/defaults/gconf-defaults.c GConf-2.28.0/defaults/gcon
  	}
  
          polkit_authority_enumerate_actions (mechanism->priv->auth,
-diff -urN GConf-2.28.0.orig/gconf/gconfd.c GConf-2.28.0/gconf/gconfd.c
---- GConf-2.28.0.orig/gconf/gconfd.c	2009-08-19 17:35:32.000000000 +0200
-+++ GConf-2.28.0/gconf/gconfd.c	2009-10-04 12:16:44.000000000 +0200
-@@ -637,7 +637,7 @@
+Index: GConf-3.2.5/gconf/gconfd.c
+===================================================================
+--- GConf-3.2.5.orig/gconf/gconfd.c	2012-03-07 19:08:55.000000000 +0100
++++ GConf-3.2.5/gconf/gconfd.c	2012-04-26 18:33:36.138860479 +0200
+@@ -709,7 +709,7 @@
  
  	  gconf_log (GCL_DEBUG, "System defaults changed.  Notifying.");
  
--	  addresses.data = "xml:merged:/etc/gconf/gconf.xml.system";
-+	  addresses.data = "xml:merged:/etc/gconf/gconf.xml.defaults";
+-	  addresses.data = "xml:merged:" GCONF_ETCDIR "/gconf.xml.system";
++	  addresses.data = "xml:merged:" GCONF_ETCDIR "/gconf.xml.defaults";
  	  addresses.next = NULL;
  	  system_sources = gconf_sources_new_from_addresses (&addresses, NULL);
  

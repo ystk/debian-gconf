@@ -78,6 +78,9 @@ Here's a short error handling example:
 <!-- ##### SECTION Stability_Level ##### -->
 
 
+<!-- ##### SECTION Image ##### -->
+
+
 <!-- ##### ENUM GConfError ##### -->
 <para>
 The #GConfError enumeration allows client applications to
@@ -113,8 +116,10 @@ argument list is the same as in printf().
 
 @en: the error number.
 @format: printf()-style format for error description.
-@Varargs: arguments required by the @format.
+@...: 
 @Returns: newly-allocated #GError.
+<!-- # Unused Parameters # -->
+@Varargs: arguments required by the @format.
 
 
 <!-- ##### FUNCTION gconf_error_quark ##### -->
@@ -122,6 +127,7 @@ argument list is the same as in printf().
 Converts the string 'gconf-error-quark' to a #GQuark and returns the value.
 </para>
 
+@void: 
 @Returns: the #GQuark representing the string.
 
 
@@ -133,7 +139,7 @@ Internal function.
 @err: 
 @en: 
 @format: 
-@Varargs: 
+@...: 
 
 
 <!-- ##### FUNCTION gconf_compose_errors ##### -->
