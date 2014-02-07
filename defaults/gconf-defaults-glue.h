@@ -10,7 +10,7 @@ G_BEGIN_DECLS
 
 #ifdef G_ENABLE_DEBUG
 #define g_marshal_value_peek_boolean(v)  g_value_get_boolean (v)
-#define g_marshal_value_peek_char(v)     g_value_get_char (v)
+#define g_marshal_value_peek_char(v)     g_value_get_schar (v)
 #define g_marshal_value_peek_uchar(v)    g_value_get_uchar (v)
 #define g_marshal_value_peek_int(v)      g_value_get_int (v)
 #define g_marshal_value_peek_uint(v)     g_value_get_uint (v)
@@ -27,6 +27,7 @@ G_BEGIN_DECLS
 #define g_marshal_value_peek_boxed(v)    g_value_get_boxed (v)
 #define g_marshal_value_peek_pointer(v)  g_value_get_pointer (v)
 #define g_marshal_value_peek_object(v)   g_value_get_object (v)
+#define g_marshal_value_peek_variant(v)  g_value_get_variant (v)
 #else /* !G_ENABLE_DEBUG */
 /* WARNING: This code accesses GValues directly, which is UNSUPPORTED API.
  *          Do not access GValues directly in your code. Instead, use the
@@ -50,34 +51,34 @@ G_BEGIN_DECLS
 #define g_marshal_value_peek_boxed(v)    (v)->data[0].v_pointer
 #define g_marshal_value_peek_pointer(v)  (v)->data[0].v_pointer
 #define g_marshal_value_peek_object(v)   (v)->data[0].v_pointer
+#define g_marshal_value_peek_variant(v)  (v)->data[0].v_pointer
 #endif /* !G_ENABLE_DEBUG */
 
 
-/* NONE:STRING,STRING,POINTER */
-extern void dbus_glib_marshal_gconf_defaults_VOID__STRING_STRING_POINTER (GClosure     *closure,
-                                                                          GValue       *return_value,
-                                                                          guint         n_param_values,
-                                                                          const GValue *param_values,
-                                                                          gpointer      invocation_hint,
-                                                                          gpointer      marshal_data);
+/* NONE:BOXED,POINTER */
+extern void dbus_glib_marshal_gconf_defaults_VOID__BOXED_POINTER (GClosure     *closure,
+                                                                  GValue       *return_value,
+                                                                  guint         n_param_values,
+                                                                  const GValue *param_values,
+                                                                  gpointer      invocation_hint,
+                                                                  gpointer      marshal_data);
 void
-dbus_glib_marshal_gconf_defaults_VOID__STRING_STRING_POINTER (GClosure     *closure,
-                                                              GValue       *return_value G_GNUC_UNUSED,
-                                                              guint         n_param_values,
-                                                              const GValue *param_values,
-                                                              gpointer      invocation_hint G_GNUC_UNUSED,
-                                                              gpointer      marshal_data)
+dbus_glib_marshal_gconf_defaults_VOID__BOXED_POINTER (GClosure     *closure,
+                                                      GValue       *return_value G_GNUC_UNUSED,
+                                                      guint         n_param_values,
+                                                      const GValue *param_values,
+                                                      gpointer      invocation_hint G_GNUC_UNUSED,
+                                                      gpointer      marshal_data)
 {
-  typedef void (*GMarshalFunc_VOID__STRING_STRING_POINTER) (gpointer     data1,
-                                                            gpointer     arg_1,
-                                                            gpointer     arg_2,
-                                                            gpointer     arg_3,
-                                                            gpointer     data2);
-  register GMarshalFunc_VOID__STRING_STRING_POINTER callback;
+  typedef void (*GMarshalFunc_VOID__BOXED_POINTER) (gpointer     data1,
+                                                    gpointer     arg_1,
+                                                    gpointer     arg_2,
+                                                    gpointer     data2);
+  register GMarshalFunc_VOID__BOXED_POINTER callback;
   register GCClosure *cc = (GCClosure*) closure;
   register gpointer data1, data2;
 
-  g_return_if_fail (n_param_values == 4);
+  g_return_if_fail (n_param_values == 3);
 
   if (G_CCLOSURE_SWAP_DATA (closure))
     {
@@ -89,15 +90,14 @@ dbus_glib_marshal_gconf_defaults_VOID__STRING_STRING_POINTER (GClosure     *clos
       data1 = g_value_peek_pointer (param_values + 0);
       data2 = closure->data;
     }
-  callback = (GMarshalFunc_VOID__STRING_STRING_POINTER) (marshal_data ? marshal_data : cc->callback);
+  callback = (GMarshalFunc_VOID__BOXED_POINTER) (marshal_data ? marshal_data : cc->callback);
 
   callback (data1,
-            g_marshal_value_peek_string (param_values + 1),
-            g_marshal_value_peek_string (param_values + 2),
-            g_marshal_value_peek_pointer (param_values + 3),
+            g_marshal_value_peek_boxed (param_values + 1),
+            g_marshal_value_peek_pointer (param_values + 2),
             data2);
 }
-#define dbus_glib_marshal_gconf_defaults_NONE__STRING_STRING_POINTER	dbus_glib_marshal_gconf_defaults_VOID__STRING_STRING_POINTER
+#define dbus_glib_marshal_gconf_defaults_NONE__BOXED_POINTER	dbus_glib_marshal_gconf_defaults_VOID__BOXED_POINTER
 
 /* NONE:BOXED,BOXED,POINTER */
 extern void dbus_glib_marshal_gconf_defaults_VOID__BOXED_BOXED_POINTER (GClosure     *closure,
@@ -145,30 +145,31 @@ dbus_glib_marshal_gconf_defaults_VOID__BOXED_BOXED_POINTER (GClosure     *closur
 }
 #define dbus_glib_marshal_gconf_defaults_NONE__BOXED_BOXED_POINTER	dbus_glib_marshal_gconf_defaults_VOID__BOXED_BOXED_POINTER
 
-/* NONE:BOXED,POINTER */
-extern void dbus_glib_marshal_gconf_defaults_VOID__BOXED_POINTER (GClosure     *closure,
-                                                                  GValue       *return_value,
-                                                                  guint         n_param_values,
-                                                                  const GValue *param_values,
-                                                                  gpointer      invocation_hint,
-                                                                  gpointer      marshal_data);
+/* NONE:STRING,STRING,POINTER */
+extern void dbus_glib_marshal_gconf_defaults_VOID__STRING_STRING_POINTER (GClosure     *closure,
+                                                                          GValue       *return_value,
+                                                                          guint         n_param_values,
+                                                                          const GValue *param_values,
+                                                                          gpointer      invocation_hint,
+                                                                          gpointer      marshal_data);
 void
-dbus_glib_marshal_gconf_defaults_VOID__BOXED_POINTER (GClosure     *closure,
-                                                      GValue       *return_value G_GNUC_UNUSED,
-                                                      guint         n_param_values,
-                                                      const GValue *param_values,
-                                                      gpointer      invocation_hint G_GNUC_UNUSED,
-                                                      gpointer      marshal_data)
+dbus_glib_marshal_gconf_defaults_VOID__STRING_STRING_POINTER (GClosure     *closure,
+                                                              GValue       *return_value G_GNUC_UNUSED,
+                                                              guint         n_param_values,
+                                                              const GValue *param_values,
+                                                              gpointer      invocation_hint G_GNUC_UNUSED,
+                                                              gpointer      marshal_data)
 {
-  typedef void (*GMarshalFunc_VOID__BOXED_POINTER) (gpointer     data1,
-                                                    gpointer     arg_1,
-                                                    gpointer     arg_2,
-                                                    gpointer     data2);
-  register GMarshalFunc_VOID__BOXED_POINTER callback;
+  typedef void (*GMarshalFunc_VOID__STRING_STRING_POINTER) (gpointer     data1,
+                                                            gpointer     arg_1,
+                                                            gpointer     arg_2,
+                                                            gpointer     arg_3,
+                                                            gpointer     data2);
+  register GMarshalFunc_VOID__STRING_STRING_POINTER callback;
   register GCClosure *cc = (GCClosure*) closure;
   register gpointer data1, data2;
 
-  g_return_if_fail (n_param_values == 3);
+  g_return_if_fail (n_param_values == 4);
 
   if (G_CCLOSURE_SWAP_DATA (closure))
     {
@@ -180,14 +181,15 @@ dbus_glib_marshal_gconf_defaults_VOID__BOXED_POINTER (GClosure     *closure,
       data1 = g_value_peek_pointer (param_values + 0);
       data2 = closure->data;
     }
-  callback = (GMarshalFunc_VOID__BOXED_POINTER) (marshal_data ? marshal_data : cc->callback);
+  callback = (GMarshalFunc_VOID__STRING_STRING_POINTER) (marshal_data ? marshal_data : cc->callback);
 
   callback (data1,
-            g_marshal_value_peek_boxed (param_values + 1),
-            g_marshal_value_peek_pointer (param_values + 2),
+            g_marshal_value_peek_string (param_values + 1),
+            g_marshal_value_peek_string (param_values + 2),
+            g_marshal_value_peek_pointer (param_values + 3),
             data2);
 }
-#define dbus_glib_marshal_gconf_defaults_NONE__BOXED_POINTER	dbus_glib_marshal_gconf_defaults_VOID__BOXED_POINTER
+#define dbus_glib_marshal_gconf_defaults_NONE__STRING_STRING_POINTER	dbus_glib_marshal_gconf_defaults_VOID__STRING_STRING_POINTER
 
 G_END_DECLS
 
@@ -204,8 +206,7 @@ static const DBusGMethodInfo dbus_glib_gconf_defaults_methods[] = {
   { (GCallback) gconf_defaults_can_set_mandatory, dbus_glib_marshal_gconf_defaults_NONE__BOXED_POINTER, 403 },
 };
 
-const DBusGObjectInfo dbus_glib_gconf_defaults_object_info = {
-  0,
+const DBusGObjectInfo dbus_glib_gconf_defaults_object_info = {  1,
   dbus_glib_gconf_defaults_methods,
   7,
 "org.gnome.GConf.Defaults\0SetSystem\0A\0includes\0I\0as\0excludes\0I\0as\0\0org.gnome.GConf.Defaults\0SetSystemValue\0A\0path\0I\0s\0value\0I\0s\0\0org.gnome.GConf.Defaults\0CanSetSystem\0A\0includes\0I\0as\0result\0O\0F\0N\0u\0\0org.gnome.GConf.Defaults\0SetMandatory\0A\0includes\0I\0as\0excludes\0I\0as\0\0org.gnome.GConf.Defaults\0SetMandatoryValue\0A\0path\0I\0s\0value\0I\0s\0\0org.gnome.GConf.Defaults\0UnsetMandatory\0A\0includes\0I\0as\0excludes\0I\0as\0\0org.gnome.GConf.Defaults\0CanSetMandatory\0A\0includes\0I\0as\0result\0O\0F\0N\0u\0\0\0",

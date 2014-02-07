@@ -36,7 +36,7 @@
 #include <time.h>
 #include <math.h>
 
-#include <dbus/dbus.h>
+#include <gio/gio.h>
 
 #ifdef G_OS_WIN32
 #include <windows.h>
@@ -131,6 +131,7 @@ gconf_key_key        (const gchar* key)
  *  Random stuff 
  */
 
+#if HAVE_CORBA
 GConfValue* 
 gconf_value_from_corba_value(const ConfigValue* value)
 {
@@ -611,6 +612,7 @@ gconf_schema_from_corba_schema(const ConfigSchema* cs)
   
   return sc;
 }
+#endif /* HAVE_CORBA */
 
 const gchar* 
 gconf_value_type_to_string(GConfValueType type)
@@ -2140,6 +2142,7 @@ gconf_value_encode (GConfValue* val)
   return retval;
 }
 
+#ifdef HAVE_CORBA
 
 /*
  * Locks
@@ -2424,10 +2427,10 @@ static char *
 get_ior (gboolean start_if_not_found,
          GString  *failure_log)
 {
-        DBusMessage *message, *reply;
-        DBusConnection *connection;
-        DBusError bus_error;
+        GDBusConnection *connection;
+        GVariant *value;
         char *ior;
+        GError *error = NULL;
 
         /* if the bus isn't running and we don't want to start gconfd then
          * we don't want to autolaunch the bus either, so bail early.
@@ -2440,52 +2443,44 @@ get_ior (gboolean start_if_not_found,
                 return NULL;
         }
 
-        dbus_error_init (&bus_error);
-        connection = dbus_bus_get (DBUS_BUS_SESSION, &bus_error);
+        g_type_init ();
 
-        if (dbus_error_is_set (&bus_error)) {
+        connection = g_bus_get_sync (G_BUS_TYPE_SESSION, NULL, &error);
+        if (connection == NULL) {
                 if (failure_log)
                     g_string_append_printf (failure_log,
                                             _("Failed to get connection to session: %s"),
-                                            bus_error.message);
-                dbus_error_free (&bus_error);
+                                            error->message);
+                g_error_free (error);
                 return NULL;
         }
 
-        message = dbus_message_new_method_call ("org.gnome.GConf",
-                                                "/org/gnome/GConf",
-                                                "org.gnome.GConf",
-                                                "GetIOR");
-        dbus_message_set_auto_start (message, start_if_not_found);
+        value = g_dbus_connection_call_sync (connection,
+                                             "org.gnome.GConf",
+                                             "/org/gnome/GConf",
+                                             "org.gnome.GConf",
+                                             "GetIOR",
+                                             g_variant_new ("()"),
+                                             G_VARIANT_TYPE ("(s)"),
+                                             start_if_not_found ? G_DBUS_CALL_FLAGS_NONE 
+                                                                : G_DBUS_CALL_FLAGS_NO_AUTO_START,
+                                             -1,
+                                             NULL,
+                                             &error);
+        g_object_unref (connection);
 
-        reply = dbus_connection_send_with_reply_and_block (connection, message, -1,
-                                                           &bus_error);
-        dbus_message_unref (message);
-
-        if (dbus_error_is_set (&bus_error)) {
+        if (value == NULL) {
                 if (failure_log)
                     g_string_append_printf (failure_log,
-                                            _("Could not send message to GConf daemon: %s"),
-                                            bus_error.message);
-                dbus_error_free (&bus_error);
+                                            _("GetIOR failed: %s"),
+                                            error->message);
+
+                g_error_free (error);
                 return NULL;
         }
 
-        ior = NULL;
-        if (!dbus_message_get_args (reply, &bus_error, DBUS_TYPE_STRING,
-                                    &ior, DBUS_TYPE_INVALID)) {
-                if (failure_log)
-                    g_string_append_printf (failure_log,
-                                            _("daemon gave erroneous reply: %s"),
-                                            bus_error.message);
-                dbus_error_free (&bus_error);
-                return NULL;
-        }
-
-        ior = g_strdup (ior);
-
-        dbus_message_unref (reply);
-        dbus_connection_unref (connection);
+        g_variant_get (value, "(s)", &ior, NULL);
+        g_variant_unref (value);
 
         return ior;
 }
@@ -2534,7 +2529,7 @@ gconf_get_server (gboolean  start_if_not_found,
   return server;
 }
 
-GConfLock*
+static GConfLock *
 gconf_get_lock_or_current_holder (const gchar  *lock_directory,
                                   ConfigServer *current_server,
                                   GError      **err)
@@ -2801,13 +2796,18 @@ gconf_get_daemon_dir (void)
       const char *tmpdir;
 
       subdir = g_strconcat ("gconfd-", g_get_user_name (), NULL);
-      
-      if (g_getenv ("GCONF_TMPDIR")) {
-	tmpdir = g_getenv ("GCONF_TMPDIR");
-      } else {
-	tmpdir = g_get_tmp_dir ();
-      }
-      
+
+      if (g_getenv ("GCONF_TMPDIR"))
+        tmpdir = g_getenv ("GCONF_TMPDIR");
+      else if (g_getenv ("XDG_RUNTIME_DIR"))
+        {
+          g_free (subdir);
+          subdir = g_strdup ("gconfd");
+          tmpdir = g_getenv ("XDG_RUNTIME_DIR");
+        }
+      else
+        tmpdir = g_get_tmp_dir ();
+
       s = g_build_filename (tmpdir, subdir, NULL);
 
       g_free (subdir);
@@ -2882,7 +2882,7 @@ gconf_activate_server (gboolean  start_if_not_found,
     g_set_error (error,
                  GCONF_ERROR,
                  GCONF_ERROR_NO_SERVER,
-                 _("Failed to contact configuration server; some possible causes are that you need to enable TCP/IP networking for ORBit, or you have stale NFS locks due to a system crash. See http://projects.gnome.org/gconf/ for information. (Details - %s)"),
+                 _("Failed to contact configuration server; the most common cause is a missing or misconfigured D-Bus session bus daemon. See http://projects.gnome.org/gconf/ for information. (Details - %s)"),
                  failure_log->len > 0 ? failure_log->str : _("none"));
 
   g_string_free (failure_log, TRUE);
@@ -2918,6 +2918,8 @@ gconf_CORBA_Object_hash (gconstpointer key)
 
   return retval;
 }
+
+#endif /* HAVE_CORBA */
 
 void
 _gconf_init_i18n (void)
