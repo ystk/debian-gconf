@@ -116,10 +116,8 @@ argument list is the same as in printf().
 
 @en: the error number.
 @format: printf()-style format for error description.
-@...: 
-@Returns: newly-allocated #GError.
-<!-- # Unused Parameters # -->
 @Varargs: arguments required by the @format.
+@Returns: newly-allocated #GError.
 
 
 <!-- ##### FUNCTION gconf_error_quark ##### -->
@@ -139,7 +137,7 @@ Internal function.
 @err: 
 @en: 
 @format: 
-@...: 
+@Varargs: 
 
 
 <!-- ##### FUNCTION gconf_compose_errors ##### -->

@@ -149,7 +149,7 @@ gconf-internals
 
 @pri: 
 @format: 
-@...: 
+@Varargs: 
 
 
 <!-- ##### FUNCTION gconf_key_check ##### -->

@@ -116,10 +116,8 @@ Convenient Varags version of gconf_engine_change_set_from_current().
 @conf: a #GConfEngine.
 @err: the return location for an allocated #GError, or <symbol>NULL</symbol> to ignore errors.
 @first_key: the first key, a char* value.
-@...: 
-@Returns: the newly allocated #GConfChangeSet.
-<!-- # Unused Parameters # -->
 @Varargs: the keys to be set.
+@Returns: the newly allocated #GConfChangeSet.
 
 
 <!-- ##### FUNCTION gconf_change_set_new ##### -->
