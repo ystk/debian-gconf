@@ -1,6 +1,6 @@
 AC_PREREQ(2.60)
 AC_INIT([GConf],
-  [3.2.5],
+  [3.2.6],
   [http://bugzilla.gnome.org/enter_bug.cgi?product=GConf],
   [GConf])
 
@@ -9,7 +9,7 @@ AC_CONFIG_HEADERS([config.h])
 
 AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-bzip2 -Wall])
 
-m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([no])])
+m4_ifdef([AM_SILENT_RULES],[AM_SILENT_RULES([yes])])
 
 AM_MAINTAINER_MODE([enable])
 
@@ -39,7 +39,6 @@ fi
 AC_PROG_CC
 AC_PROG_CXX
 AC_ISC_POSIX
-AM_PROG_CC_STDC
 AC_HEADER_STDC
 AC_LIBTOOL_WIN32_DLL
 AM_PROG_LIBTOOL

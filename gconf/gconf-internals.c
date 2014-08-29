@@ -719,6 +719,38 @@ _gconf_win32_get_home_dir (void)
 
 #endif
 
+static const gchar *
+get_user_source_dir (void)
+{
+  static const gchar *user_source = NULL;
+
+  if (user_source == NULL)
+    {
+      gchar *path_new;
+      gchar *path_old;
+
+      path_new = g_build_filename (g_get_user_config_dir (), "gconf", NULL);
+#ifndef G_OS_WIN32
+      path_old = g_build_filename (g_get_home_dir (), ".gconf", NULL);
+#else
+      path_old = g_build_filename (_gconf_win32_get_home_dir (), ".gconf", NULL);
+#endif
+      if ((g_file_test (path_new, G_FILE_TEST_IS_DIR))
+          || (! g_file_test (path_old, G_FILE_TEST_IS_DIR)))
+        {
+          user_source = path_new;
+          g_free (path_old);
+        }
+      else
+        {
+          g_free (path_new);
+          user_source = path_old;
+        }
+    }
+
+  return user_source;
+}
+
 static const gchar*
 get_variable(const gchar* varname)
 {
@@ -732,6 +764,14 @@ get_variable(const gchar* varname)
 #else
       return _gconf_win32_get_home_dir ();
 #endif
+    }
+  else if (strcmp(varname, "USERCONFIGDIR") == 0)
+    {
+      return g_get_user_config_dir();
+    }
+  else if (strcmp(varname, "DEFAULTUSERSOURCE") == 0)
+    {
+      return get_user_source_dir();
     }
   else if (strcmp(varname, "USER") == 0)
     {
@@ -2435,7 +2475,7 @@ get_ior (gboolean start_if_not_found,
         /* if the bus isn't running and we don't want to start gconfd then
          * we don't want to autolaunch the bus either, so bail early.
          */
-        if (g_getenv ("DBUS_SESSION_BUS_ADDRESS") == NULL &&
+        if ((g_getenv ("DBUS_SESSION_BUS_ADDRESS") == NULL && g_getenv ("DBUS_LAUNCHD_SESSION_BUS_SOCKET") == NULL ) &&
            (!start_if_not_found || g_getenv ("DISPLAY") == NULL)) {
                 if (failure_log)
                     g_string_append_printf (failure_log,
@@ -2823,19 +2863,6 @@ gconf_get_daemon_dir (void)
 #endif
       return g_strconcat (home, "/.gconfd", NULL);
     }
-}
-
-char*
-gconf_get_lock_dir (void)
-{
-  char *gconfd_dir;
-  char *lock_dir;
-  
-  gconfd_dir = gconf_get_daemon_dir ();
-  lock_dir = g_strconcat (gconfd_dir, "/lock", NULL);
-
-  g_free (gconfd_dir);
-  return lock_dir;
 }
 
 ConfigServer

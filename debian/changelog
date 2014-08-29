@@ -1,8 +1,36 @@
-gconf (3.2.5-1+build1) unstable; urgency=low
+gconf (3.2.6-2) unstable; urgency=low
 
-  * No source changes; rebuild with xz compression.
+  * gconf-schemas: hide error messages caused by DBus, they are 
+    harmless.
+    Closes: #711597, #711339.
+  * Remove gconftool alternative, replace it by proper symlinks.
+    Closes: #718277.
 
- -- Michael Biebl <biebl@debian.org>  Tue, 07 Aug 2012 14:14:52 +0200
+ -- Josselin Mouette <joss@debian.org>  Sun, 09 Mar 2014 22:03:52 +0100
+
+gconf (3.2.6-1) unstable; urgency=low
+
+  [ Martin Pitt ]
+  * Add a simple compile/link/run autopkgtest for libgconf2-dev. Thanks Rafał
+    Cieślak! (LP: #1078719)
+  * debian/tests/build:
+    - Add -Wall -Werror for being more thorough.
+    - Don't call deprecated g_type_init() when building with glib >= 2.35.
+
+  [ Michael Biebl ]
+  * New upstream release.
+    - Fixes use after free in gconf-dbus. Closes: #699424
+  * Remove 04_manpage.patch, merged upstream. Refresh other patches.
+  * Add symbols file for libgconf-2-4.
+  * Bump Standards-Version to 3.9.4. No further changes.
+
+ -- Michael Biebl <biebl@debian.org>  Thu, 06 Jun 2013 03:29:17 +0200
+
+gconf (3.2.5-2) unstable; urgency=low
+
+  * Break libgconf2.0-cil < 2.24.2-3. Closes: #694340.
+
+ -- Josselin Mouette <joss@debian.org>  Wed, 13 Mar 2013 10:56:19 +0100
 
 gconf (3.2.5-1) unstable; urgency=low
 

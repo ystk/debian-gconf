@@ -1,0 +1,2 @@
+Tests: build
+Depends: build-essential, pkg-config, libgconf2-dev

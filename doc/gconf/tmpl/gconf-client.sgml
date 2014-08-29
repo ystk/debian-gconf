@@ -879,9 +879,7 @@ Convenient varargs version of gconf_client_change_set_from_currentv().
 @client: a #GConfClient.
 @err: the return location for an allocated #GError, or <symbol>NULL</symbol> to ignore errors.
 @first_key: first key to save the current state of.
-@...: 
-@Returns: new change set that changes all the keys to their current state.
-<!-- # Unused Parameters # -->
 @Varargs: <symbol>NULL</symbol>-terminated list of additional keys.
+@Returns: new change set that changes all the keys to their current state.
 
 

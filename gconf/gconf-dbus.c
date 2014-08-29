@@ -1252,12 +1252,13 @@ gconf_engine_get_fuller (GConfEngine *conf,
   
   if (schema_name && schema_name[0] != '/')
     {
+      g_free (schema_name);
       schema_name = NULL;
     }
   
   if (schema_name_p)
-    *schema_name_p = g_strdup (schema_name);
-  
+    *schema_name_p = schema_name;
+
   return val;
 }
 
@@ -2402,7 +2403,7 @@ handle_notify (DBusConnection *connection,
 	       GConfEngine *conf2)
 {
   GConfEngine *conf;
-  gchar *key, *schema_name;
+  gchar *key = NULL, *schema_name = NULL;
   gboolean is_default, is_writable;
   DBusMessageIter iter;
   GConfValue *value;
@@ -2466,6 +2467,8 @@ handle_notify (DBusConnection *connection,
 
   if (value)
     gconf_value_free (value);
+  g_free (key);
+  g_free (schema_name);
 
   if (!match)
     return DBUS_HANDLER_RESULT_NOT_YET_HANDLED;
@@ -2483,7 +2486,13 @@ gconf_shutdown_daemon (GError** err)
 {
   DBusMessage *message;
 
-  /* Don't want to spawn it if it's already down */
+  /* If we haven't reached out to it yet,
+   * reach out now.
+   */
+  if (global_conn == NULL)
+    gconf_ping_daemon();
+
+  /* But we don't want to spawn it if it's already down */
   if (global_conn == NULL || !service_running)
     return;
   

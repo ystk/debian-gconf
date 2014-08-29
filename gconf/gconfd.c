@@ -397,14 +397,10 @@ gconf_server_get_default_sources(void)
 
   if (addresses == NULL)
     {      
-#ifndef G_OS_WIN32
-      const char *home = g_get_home_dir ();
-#else
-      const char *home = _gconf_win32_get_home_dir ();
-#endif
+      const char *configdir = g_get_user_config_dir ();
 
-      /* Try using the default address xml:readwrite:$(HOME)/.gconf */
-      addresses = g_slist_append(addresses, g_strconcat("xml:readwrite:", home, "/.gconf", NULL));
+      /* Try using the default address xml:readwrite:$(USERCONFIGDIR)/gconf */
+      addresses = g_slist_append(addresses, g_strconcat("xml:readwrite:", configdir, "/gconf", NULL));
 
       gconf_log(GCL_DEBUG, _("No configuration files found. Trying to use the default configuration source `%s'"), (char *)addresses->data);
     }
@@ -1755,9 +1751,9 @@ open_append_handle (GError **err)
 
       get_log_names (&logdir, &logfile);
       
-      g_mkdir (logdir, 0700); /* ignore failure, we'll catch failures
-			       * that matter on open()
-			       */
+      g_mkdir_with_parents (logdir, 0700); /* ignore failure, we'll catch failures
+                                            * that matter on open()
+                                            */
       
       append_handle = g_fopen (logfile, "a");
 
@@ -1832,9 +1828,9 @@ logfile_save (void)
   
   get_log_names (&logdir, &logfile);
 
-  g_mkdir (logdir, 0700); /* ignore failure, we'll catch failures
-			   * that matter on open()
-			   */
+  g_mkdir_with_parents (logdir, 0700); /* ignore failure, we'll catch failures
+                                        * that matter on open()
+                                        */
 
   saveme = g_string_new (NULL);
 

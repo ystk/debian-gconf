@@ -11,11 +11,11 @@ https://bugzilla.gnome.org/show_bug.cgi?id=668948
  gconf/gconf-dbus.c |   23 +++++++++++++++++++++++
  1 files changed, 23 insertions(+), 0 deletions(-)
 
-diff --git a/gconf/gconf-dbus.c b/gconf/gconf-dbus.c
-index 442a94b..9eda515 100644
---- a/gconf/gconf-dbus.c
-+++ b/gconf/gconf-dbus.c
-@@ -2194,6 +2194,29 @@ gconf_engine_remove_dir (GConfEngine* conf,
+Index: GConf-3.2.6/gconf/gconf-dbus.c
+===================================================================
+--- GConf-3.2.6.orig/gconf/gconf-dbus.c	2013-06-06 02:39:13.243932775 +0200
++++ GConf-3.2.6/gconf/gconf-dbus.c	2013-06-06 02:39:13.239932729 +0200
+@@ -2195,6 +2195,29 @@
      }
  }
  
@@ -45,5 +45,3 @@ index 442a94b..9eda515 100644
  static void
  cnxn_get_all_func (gpointer key,
  		   gpointer value,
--- 
-1.7.9

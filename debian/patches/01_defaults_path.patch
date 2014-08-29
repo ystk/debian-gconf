@@ -1,7 +1,7 @@
-Index: GConf-3.2.5/defaults/gconf-defaults.c
+Index: GConf-3.2.6/defaults/gconf-defaults.c
 ===================================================================
---- GConf-3.2.5.orig/defaults/gconf-defaults.c	2012-03-07 19:08:55.000000000 +0100
-+++ GConf-3.2.5/defaults/gconf-defaults.c	2012-04-26 18:33:36.134860479 +0200
+--- GConf-3.2.6.orig/defaults/gconf-defaults.c	2013-06-06 02:38:14.471252652 +0200
++++ GConf-3.2.6/defaults/gconf-defaults.c	2013-06-06 02:38:14.463252560 +0200
 @@ -811,7 +811,7 @@
  	else {
  		adata->annotation_key = "org.gnome.gconf.defaults.set-system.prefix";
@@ -11,11 +11,11 @@ Index: GConf-3.2.5/defaults/gconf-defaults.c
  	}
  
          polkit_authority_enumerate_actions (mechanism->priv->auth,
-Index: GConf-3.2.5/gconf/gconfd.c
+Index: GConf-3.2.6/gconf/gconfd.c
 ===================================================================
---- GConf-3.2.5.orig/gconf/gconfd.c	2012-03-07 19:08:55.000000000 +0100
-+++ GConf-3.2.5/gconf/gconfd.c	2012-04-26 18:33:36.138860479 +0200
-@@ -709,7 +709,7 @@
+--- GConf-3.2.6.orig/gconf/gconfd.c	2013-06-06 02:38:14.471252652 +0200
++++ GConf-3.2.6/gconf/gconfd.c	2013-06-06 02:38:14.463252560 +0200
+@@ -705,7 +705,7 @@
  
  	  gconf_log (GCL_DEBUG, "System defaults changed.  Notifying.");
  
