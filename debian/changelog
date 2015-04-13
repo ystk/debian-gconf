@@ -1,3 +1,12 @@
+gconf (3.2.6-3) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Fernando Seiti Furusato ]
+  * Use dh-autoreconf. Closes: #746690.
+
+ -- Andreas Henriksson <andreas@fatal.se>  Tue, 26 Aug 2014 11:30:09 -0700
+
 gconf (3.2.6-2) unstable; urgency=low
 
   * gconf-schemas: hide error messages caused by DBus, they are 
